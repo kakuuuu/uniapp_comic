@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///D:/Reworu_文档/课外学习/uniapp/uniapp_carton/main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,4F;AACAA,UAAU,CAACC,cAAD,CAAV,C","file":"pages/index/index.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './pages/index/index.vue'\ncreatePage(Page)"],"sourceRoot":""}

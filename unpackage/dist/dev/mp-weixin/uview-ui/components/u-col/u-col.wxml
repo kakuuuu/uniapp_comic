@@ -1,0 +1,1 @@
+<view class="{{['u-col','u-col-'+span]}}" style="{{'padding:'+('0 '+($root.m0/2+'rpx'))+';'+('margin-left:'+(100/12*offset+'%')+';')+('flex:'+('0 0 '+100/12*span+'%')+';')}}"><slot></slot></view>

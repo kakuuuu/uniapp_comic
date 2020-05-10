@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-row": "/uview-ui/components/u-row/u-row",
+    "u-col": "/uview-ui/components/u-col/u-col",
+    "u-tag": "/uview-ui/components/u-tag/u-tag"
+  }
+}

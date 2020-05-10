@@ -1,0 +1,26 @@
+.discover.data-v-ae4f7ffe {
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+.button_view.data-v-ae4f7ffe {
+  margin-top: 64rpx;
+}
+.mid-content .title.data-v-ae4f7ffe {
+  margin-top: 64rpx;
+}
+.mid-content .title text.data-v-ae4f7ffe {
+  font-size: 42rpx;
+}
+.carton_box.data-v-ae4f7ffe {
+  margin-top: 32rpx;
+}
+.carton_box image.data-v-ae4f7ffe {
+  width: 100%;
+}
+.carton_box .book_name.data-v-ae4f7ffe {
+  font-size: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  height: 80rpx;
+}
+

@@ -1,0 +1,1 @@
+<view class="content"></view>

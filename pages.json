@@ -1,0 +1,58 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/discover/discover",
+			"style": {}
+		},
+		{
+			"path": "pages/recommend/recommend",
+			"style": {}
+		}, {
+			"path": "pages/bookshelf/bookshelf",
+			"style": {}
+		}
+	    ,{
+            "path" : "pages/updatelist/updatelist",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/classiclist/classiclist",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/comicdetails/comicdetails",
+            "style" : {}
+        }
+    ],
+	"tabBar": {
+		"color": "#7f8389",
+		"selectedColor": "#333333",
+		"borderStyle":"white",
+		"backgroundColor": "#FFFFFF",
+		"fontSize":"12px",
+		"list": [{
+			"pagePath": "pages/recommend/recommend",
+			"iconPath": "static/icon/choiceness.png",
+			"selectedIconPath": "static/icon/choiceness_s.png",
+			"text": "推荐"
+		}, {
+			"pagePath": "pages/discover/discover",
+			"iconPath": "static/icon/discover.png",
+			"selectedIconPath": "static/icon/discover_s.png",
+			"text": "发现"
+		}, {
+			"pagePath": "pages/bookshelf/bookshelf",
+			"iconPath": "static/icon/form.png",
+			"selectedIconPath": "static/icon/form_s.png",
+			"text": "书架"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff"
+	}
+}

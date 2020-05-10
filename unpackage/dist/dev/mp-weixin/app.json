@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/discover/discover",
+    "pages/recommend/recommend",
+    "pages/bookshelf/bookshelf",
+    "pages/updatelist/updatelist",
+    "pages/classiclist/classiclist",
+    "pages/comicdetails/comicdetails"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#7f8389",
+    "selectedColor": "#333333",
+    "borderStyle": "white",
+    "backgroundColor": "#FFFFFF",
+    "fontSize": "12px",
+    "list": [
+      {
+        "pagePath": "pages/recommend/recommend",
+        "iconPath": "static/icon/choiceness.png",
+        "selectedIconPath": "static/icon/choiceness_s.png",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "iconPath": "static/icon/discover.png",
+        "selectedIconPath": "static/icon/discover_s.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/bookshelf/bookshelf",
+        "iconPath": "static/icon/form.png",
+        "selectedIconPath": "static/icon/form_s.png",
+        "text": "书架"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

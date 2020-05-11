@@ -26,6 +26,10 @@
             "path" : "pages/comicdetails/comicdetails",
             "style" : {}
         }
+        ,{
+            "path" : "pages/chapterdetail/chapterdetail",
+            "style" : {}
+        }
     ],
 	"tabBar": {
 		"color": "#7f8389",

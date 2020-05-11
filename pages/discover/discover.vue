@@ -155,7 +155,7 @@
 <style lang="less" scoped>
 	.discover {
 		margin-left: 24rpx;
-		margin-right: 24rpx;
+		margin-right: 23rpx;
 	}
 
 	.button_view {

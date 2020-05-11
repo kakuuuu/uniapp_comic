@@ -1,0 +1,7 @@
+.photo image {
+  width: 100%;
+}
+.bottom_nav {
+  padding: 30rpx;
+}
+

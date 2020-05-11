@@ -7,4 +7,92 @@
 .tabs .u_tabs.data-v-51e953c1 {
   border-bottom: 2rpx #e6e6e6 solid;
 }
+.details.data-v-51e953c1 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-weight: bold;
+}
+.details .introduction.data-v-51e953c1 {
+  font-size: 26rpx;
+}
+.details .author.data-v-51e953c1 {
+  font-size: 26rpx;
+  margin-bottom: 28rpx;
+}
+.details view.data-v-51e953c1 {
+  margin-top: 28rpx;
+}
+.details .detailstop.data-v-51e953c1 {
+  border-bottom: 7rpx soild #f7f9fa;
+}
+.details .title.data-v-51e953c1 {
+  font-size: 30rpx;
+}
+.details .title .cnumber.data-v-51e953c1 {
+  font-size: 21rpx;
+  color: #999999;
+  margin-left: 12rpx;
+}
+.details .detailsbottom.data-v-51e953c1 {
+  background-color: #ffffff;
+  border-top: 7rpx soild #A0CFFF;
+}
+.details .detailsbottom .comment.data-v-51e953c1 {
+  font-size: 26rpx;
+  border-bottom: 2rpx #e6e6e6 soild;
+}
+.details .detailsbottom .comment .nick_name.data-v-51e953c1 {
+  margin-top: 8rpx;
+  color: #666666;
+}
+.details .detailsbottom .comment .comment_content.data-v-51e953c1 {
+  margin-top: 28rpx;
+  color: #555555;
+}
+.chapter_list.data-v-51e953c1 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-weight: bold;
+}
+.chapter_list .chapter.data-v-51e953c1 {
+  margin-top: 30rpx;
+}
+.chapter_list .chapter image.data-v-51e953c1 {
+  height: 140rpx;
+  width: 100%;
+}
+.chapter_list .chapter .chapter_title.data-v-51e953c1 {
+  font-size: 29rpx;
+}
+.chapter_list .chapter .update_time.data-v-51e953c1 {
+  margin-top: 82rpx;
+  font-size: 17rpx;
+  font-weight: normal;
+  color: #9d9d9d;
+}
+.bottom_nav.data-v-51e953c1 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 97rpx;
+}
+.bottom_nav .chapter_first.data-v-51e953c1 {
+  height: 97rpx;
+  line-height: 97rpx;
+  text-align: start;
+  background-color: #f7f9fa;
+  color: #666666;
+  font-size: 28rpx;
+  border-top: #e6e6e6 soild 2rpx;
+  padding-left: 30rpx;
+}
+.bottom_nav .start_button.data-v-51e953c1 {
+  height: 97rpx;
+  font-weight: bold;
+  line-height: 97rpx;
+  text-align: center;
+  background-color: #fde23d;
+  font-size: 30rpx;
+}
 

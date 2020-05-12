@@ -2,6 +2,6 @@
   width: 100%;
 }
 .bottom_nav {
-  padding: 30rpx;
+  padding: 28rpx;
 }
 

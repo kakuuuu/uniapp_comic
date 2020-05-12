@@ -30,6 +30,18 @@
             "path" : "pages/chapterdetail/chapterdetail",
             "style" : {}
         }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/hotlist/hotlist",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/classification/classification",
+            "style" : {}
+        }
     ],
 	"tabBar": {
 		"color": "#7f8389",

@@ -1,0 +1,152 @@
+<template>
+	<view class="hotlist">
+		<view class="top_box" :style="{background:'url('+hotlist[0].cover_url+') no-repeat', 'background-clip':'content-box','background-size':'cover'}">
+			<view class="mask">
+				<view class="hot_title">
+					<text>热门榜</text>
+				</view>
+			</view>
+		</view>
+		<view class="carton_list">
+			<view class="carton_box" v-for="(item,index) in hotlist" v-bind:key="item.id" @click="gotocomicdetails(item.id,2)">
+				<u-row gutter="16">
+					<u-col span="5">
+						<image :src="item.cover_url" mode="widthFix"></image>
+					</u-col>
+					<u-col span="7">
+						<view class="book_name">
+							{{item.book_name}}
+						</view>
+						<view class="author_box">
+							{{item.author_name}}
+						</view>
+						<view class="book_summary">
+							{{item.summary}}
+						</view>
+						<view class="tag_box">
+							<u-tag :text="item.tags" type="info" size="mini" mode="plain" show="false" bg-color="#f7f9fa" border-color="#cccccc"
+							 color="#cccccc" />
+						</view>
+					</u-col>
+				</u-row>
+			</view>
+		</view>
+		<u-empty v-if="hotlist.length===0"></u-empty>
+	</view>
+</template>
+
+<script>
+	import md5 from '@/md5.js'
+	export default {
+		data() {
+			return {
+				hotlist: [],
+			};
+		},
+		onLoad: function() {
+			this.getlist()
+		},
+		methods: {
+			getapi() {
+				var timestamp = Date.parse(new Date());
+				var api_key = "abcde";
+				return [timestamp, md5(api_key + timestamp)];
+				//返回api_key+时间戳md5加密
+			},
+			async getlist() {
+				var key = await this.getapi();
+				uni.request({
+					url: 'http://www.liaowang.xyz/app/books/getHot',
+					data: {
+						time: key[0],
+						token: key[1]
+					},
+					success: (res) => {
+						this.hotlist = res.data.hots;
+						console.log(this.hotlist)
+					}
+				});
+			},
+			gotocomicdetails(id, uid) {
+				uni.navigateTo({
+					url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="less" scoped>
+	.top_box {
+		width: 100%;
+		height: 334rpx;
+
+		image {
+			width: 100%;
+			height: 100%;
+		}
+
+		.mask {
+			width: 100%;
+			height: 100%;
+			background: rgba(4e, 4f, 63, 0.3);
+			// text-align: center
+		}
+
+		.hot_title {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-size: 40rpx;
+			height: 100%;
+			color: #ffffff;
+			opacity: 1;
+		}
+	}
+
+	.carton_list {
+		margin-top: 28rpx;
+		margin-left: 22rpx;
+		margin-right: 22rpx;
+	}
+
+	.carton_box {
+		border-bottom: 3rpx solid #e6e6e6;
+		// background-color: #f7f9fa;
+
+		image {
+			width: 100%;
+			border-radius: 5rpx;
+		}
+
+
+		.book_name {
+			font-size: 36rpx;
+			line-height: 40rpx;
+			color: #181818;
+			overflow: hidden;
+			height: 80rpx;
+		}
+
+		.author_box {
+			font-size: 32rpx;
+			line-height: 32rpx;
+			color: #999999;
+			overflow: hidden;
+			height: 64rpx;
+		}
+
+		.book_summary {
+			font-size: 28rpx;
+			line-height: 32rpx;
+			color: #999999;
+			overflow: hidden;
+			height: 64rpx;
+		}
+
+		.tag_box {
+			margin-top: 28rpx;
+		}
+	}
+</style>

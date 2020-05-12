@@ -1,0 +1,23 @@
+.classification.data-v-4c09fae1 {
+  margin-left: 22rpx;
+  margin-right: 22rpx;
+  background-color: #fafbfc;
+}
+.tabs_box.data-v-4c09fae1 {
+  border-bottom: 3rpx solid #f3f3f3;
+}
+.booklist.data-v-4c09fae1 {
+  margin-top: 40rpx;
+}
+.carton_box image.data-v-4c09fae1 {
+  width: 100%;
+  border-radius: 5rpx;
+}
+.carton_box .book_name.data-v-4c09fae1 {
+  font-size: 28rpx;
+  line-height: 32rpx;
+  color: #181818;
+  overflow: hidden;
+  height: 64rpx;
+}
+

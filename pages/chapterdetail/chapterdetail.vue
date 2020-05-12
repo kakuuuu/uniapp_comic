@@ -5,12 +5,12 @@
 			</image>
 		</view>
 		<view class="bottom_nav">
-			<u-row gutter="0" justify="space-between">
+			<u-row gutter="2" justify="space-between">
 				<u-col span="6">
-					<u-button :disabled="chapter.prev?false:true" @click="gotochapterdetail(chapter.prev)">上一篇</u-button>
+					<u-button :disabled="chapter.prev?false:true" @click="gotochapterdetail(chapter.prev)"><u-icon name="arrow-left"></u-icon>上一篇</u-button>
 				</u-col>
 				<u-col span="6">
-					<u-button :disabled="chapter.next?false:true" @click="gotochapterdetail(chapter.next)">下一篇</u-button>
+					<u-button :disabled="chapter.next?false:true" @click="gotochapterdetail(chapter.next)">下一篇<u-icon name="arrow-right"></u-icon></u-button>
 				</u-col>
 			</u-row>
 		</view>
@@ -68,6 +68,6 @@
 		}
 	}
 	.bottom_nav{
-		padding: 30rpx;
+		padding: 28rpx;
 	}
 </style>

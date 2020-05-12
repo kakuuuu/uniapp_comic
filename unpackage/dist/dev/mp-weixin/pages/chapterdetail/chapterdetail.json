@@ -2,6 +2,7 @@
   "usingComponents": {
     "u-row": "/uview-ui/components/u-row/u-row",
     "u-col": "/uview-ui/components/u-col/u-col",
-    "u-button": "/uview-ui/components/u-button/u-button"
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-icon": "/uview-ui/components/u-icon/u-icon"
   }
 }

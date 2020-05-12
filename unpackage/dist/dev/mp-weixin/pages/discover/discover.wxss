@@ -3,7 +3,10 @@
   margin-right: 23rpx;
 }
 .button_view.data-v-ae4f7ffe {
-  margin-top: 64rpx;
+  margin-top: 44rpx;
+}
+.swiper.data-v-ae4f7ffe {
+  margin-top: 28rpx;
 }
 .mid-content .title.data-v-ae4f7ffe {
   margin-top: 64rpx;
@@ -12,15 +15,17 @@
   font-size: 42rpx;
 }
 .carton_box.data-v-ae4f7ffe {
-  margin-top: 32rpx;
+  margin-top: 25rpx;
 }
 .carton_box image.data-v-ae4f7ffe {
   width: 100%;
+  border-radius: 5rpx;
 }
 .carton_box .book_name.data-v-ae4f7ffe {
-  font-size: 40rpx;
-  line-height: 40rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  line-height: 30rpx;
   overflow: hidden;
-  height: 80rpx;
+  height: 60rpx;
 }
 

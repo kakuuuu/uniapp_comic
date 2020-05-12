@@ -6,7 +6,10 @@
     "pages/updatelist/updatelist",
     "pages/classiclist/classiclist",
     "pages/comicdetails/comicdetails",
-    "pages/chapterdetail/chapterdetail"
+    "pages/chapterdetail/chapterdetail",
+    "pages/search/search",
+    "pages/hotlist/hotlist",
+    "pages/classification/classification"
   ],
   "subPackages": [],
   "window": {

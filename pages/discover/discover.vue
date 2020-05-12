@@ -1,17 +1,21 @@
 <template>
 	<view class="discover">
 		<view class="top-content">
-			<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#f7f9fa"></u-search>
-			<u-swiper :list="swiper_list" mode="rect"></u-swiper>
+			<view class="" @click="gotosearch">
+				<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#f7f9fa" disabled="false"></u-search>
+			</view>
+			<view class="swiper">
+				<u-swiper :list="swiper_list" mode="rect"></u-swiper>
+			</view>
 			<u-row gutter="16">
 				<view class="button_view">
 					<u-col span="6">
-						<u-button>
+						<u-button @click="gotoclassification">
 							<u-icon name="grid"></u-icon>漫画分类<u-icon name="arrow-right"></u-icon>
 						</u-button>
 					</u-col>
 					<u-col span="6">
-						<u-button>
+						<u-button @click="gotohot">
 							<u-icon name="bookmark"></u-icon>热门排行<u-icon name="arrow-right"></u-icon>
 						</u-button>
 					</u-col>
@@ -123,25 +127,39 @@
 					return .5 - Math.random();
 				}).slice(0, 4);
 			},
-			changeclassiclist(){
+			changeclassiclist() {
 				this.classiclist = this.truelist.sort(function() {
 					return .5 - Math.random();
 				}).slice(0, 6);
 			},
-			gotoupdate(){
-				
+			gotoupdate() {
 				uni.navigateTo({
-				    url: '../updatelist/updatelist'
+					url: '../updatelist/updatelist'
 				})
 			},
-			gotoclassic(){
+			gotoclassic() {
 				uni.navigateTo({
-				    url: '../classiclist/classiclist'
+					url: '../classiclist/classiclist'
 				})
 			},
-			gotocomicdetails(id,uid){
+			gotohot() {
 				uni.navigateTo({
-				    url: '../comicdetails/comicdetails?id='+id+'&uid='+uid
+					url: '../hotlist/hotlist'
+				})
+			},
+			gotoclassification() {
+				uni.navigateTo({
+					url: '../classification/classification'
+				})
+			},
+			gotocomicdetails(id, uid) {
+				uni.navigateTo({
+					url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid
+				})
+			},
+			gotosearch() {
+				uni.navigateTo({
+					url: '../search/search'
 				})
 			}
 
@@ -159,7 +177,11 @@
 	}
 
 	.button_view {
-		margin-top: 64rpx;
+		margin-top: 44rpx;
+	}
+
+	.swiper {
+		margin-top: 28rpx;
 	}
 
 	.mid-content {
@@ -173,20 +195,19 @@
 	}
 
 	.carton_box {
-
-		// width: 33.3%;
-		// height: 400rpx;
-		margin-top: 32rpx;
+		margin-top: 25rpx;
 
 		image {
 			width: 100%;
+			border-radius:5rpx;
 		}
 
 		.book_name {
-			font-size: 40rpx;
-			line-height: 40rpx;
+			font-weight: bold;
+			font-size: 28rpx;
+			line-height: 30rpx;
 			overflow: hidden;
-			height: 80rpx;
+			height: 60rpx;
 		}
 	}
 </style>

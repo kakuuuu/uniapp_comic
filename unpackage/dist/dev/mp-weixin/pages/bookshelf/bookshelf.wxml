@@ -1,1 +1,1 @@
-<view></view>
+<view class="bookshelf data-v-3a531d36"><view class="top_box data-v-3a531d36"><view data-event-opts="{{[['tap',[['gotologin',['$event']]]]]}}" class="user_box data-v-3a531d36" bindtap="__e"><u-avatar class="avatar data-v-3a531d36" vue-id="d72b3d08-1" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100" bind:__l="__l"></u-avatar><view class="user_name data-v-3a531d36">测试用户1</view></view><view class="vip_box data-v-3a531d36"><view class="data-v-3a531d36">okk币</view><view class="data-v-3a531d36">会员中心</view></view></view></view>

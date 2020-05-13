@@ -42,6 +42,10 @@
             "path" : "pages/classification/classification",
             "style" : {}
         }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {}
+        }
     ],
 	"tabBar": {
 		"color": "#7f8389",

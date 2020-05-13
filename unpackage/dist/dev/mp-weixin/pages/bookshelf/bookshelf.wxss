@@ -1,0 +1,50 @@
+.top_box.data-v-3a531d36 {
+  background-color: #ffdd30;
+  height: 210rpx;
+  width: 100%;
+  position: relative;
+}
+.top_box .user_box.data-v-3a531d36 {
+  margin-left: 22rpx;
+  margin-right: 22rpx;
+  margin-top: 22rpx;
+  height: 110rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 44rpx;
+}
+.top_box .user_box .avatar.data-v-3a531d36 {
+  height: 100%;
+  width: 100;
+}
+.top_box .user_box .user_name.data-v-3a531d36 {
+  margin-left: 28rpx;
+}
+.top_box .vip_box.data-v-3a531d36 {
+  border-radius: 12rpx;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  height: 110rpx;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 5rpx 3rpx #f9f9f9;
+          box-shadow: 0px 5rpx 3rpx #f9f9f9;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-transform: translate(0, 50%);
+          transform: translate(0, 50%);
+}
+

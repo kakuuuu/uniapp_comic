@@ -9,7 +9,8 @@
     "pages/chapterdetail/chapterdetail",
     "pages/search/search",
     "pages/hotlist/hotlist",
-    "pages/classification/classification"
+    "pages/classification/classification",
+    "pages/login/login"
   ],
   "subPackages": [],
   "window": {

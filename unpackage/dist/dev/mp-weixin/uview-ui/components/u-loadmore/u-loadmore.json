@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "u-loading": "/uview-ui/components/u-loading/u-loading"
+  },
+  "component": true
+}

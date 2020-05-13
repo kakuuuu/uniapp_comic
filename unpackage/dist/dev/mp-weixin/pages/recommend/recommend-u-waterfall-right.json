@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "recommend-u-waterfall-left": "/pages/recommend/recommend-u-waterfall-left",
+    "recommend-u-waterfall-right": "/pages/recommend/recommend-u-waterfall-right"
+  }
+}

@@ -258,7 +258,7 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 39));functi
                     area: _this3.arealist[_this3.area_current].id,
                     tag: _this3.tags[_this3.tag_current].name,
                     end: _this3.endlist[_this3.end_current].id,
-                    startlem: 0,
+                    startItem: 0,
                     pageSize: 20 },
 
                   success: function success(res) {

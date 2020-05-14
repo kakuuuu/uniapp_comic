@@ -4,9 +4,14 @@
 			<image :src="book.cover_url" mode="aspectFill"></image>
 		</view>
 		<view class="tabs">
+			<view class="u_tabs" v-for="(item,index) in list" :key="index" @click="change(index)">
+				{{item.name}}
+			</view>
+		</view>
+		<!-- <view class="tabs">
 			<u-tabs class="u_tabs" :list="list" :is-scroll="false" :current="current" @change="change" font-size="30"
 			 inactive-color="#666666" active-color="#f5a623" bar-width="200" bold="false"></u-tabs>
-		</view>
+		</view> -->
 		<view v-if="current===0" class="details">
 			<view class="detailstop">
 				<view class="title">
@@ -59,18 +64,12 @@
 			</view>
 		</view>
 		<view class="bottom_nav">
-			<u-row gutter="0">
-				<u-col span="8">
-					<view class="chapter_first">
-						{{chapters[0].chapter_name}}
-					</view>
-				</u-col>
-				<u-col span="4">
-					<view class="start_button" @click="gotochapterdetail(chapters[0].id)">
-						开始阅读
-					</view>
-				</u-col>
-			</u-row>
+			<view class="chapter_first">
+				{{chapters[0].chapter_name}}
+			</view>
+			<view class="start_button" @click="gotochapterdetail(chapters[0].id)">
+				开始阅读
+			</view>
 		</view>
 	</view>
 </template>
@@ -90,6 +89,16 @@
 				}, {
 					name: '选集'
 				}],
+				endlist: [{
+					name: "全部",
+					id: null
+				}, {
+					name: "连载中",
+					id: 0
+				}, {
+					name: "已完结",
+					id: 1
+				}, ],
 				current: 0
 
 			};
@@ -154,9 +163,9 @@
 					}
 				});
 			},
-			gotochapterdetail(id){
+			gotochapterdetail(id) {
 				uni.navigateTo({
-				    url: '../chapterdetail/chapterdetail?id='+id
+					url: '../chapterdetail/chapterdetail?id=' + id
 				})
 			},
 			change(index) {
@@ -190,45 +199,57 @@
 	}
 
 	.tabs {
+		display: flex;
 		.u_tabs {
+			font-size: 30rpx;
+			height: 86rpx;
 			border-bottom: 2rpx #e6e6e6 solid;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 
 	.details {
 		padding-left: 30rpx;
 		padding-right: 30rpx;
-		font-weight: bold;
+		// font-weight: bold;
+
 		.introduction {
 			font-size: 26rpx;
 		}
-		
+
 		.author {
 			font-size: 26rpx;
 			margin-bottom: 28rpx;
 		}
-		
+
 		view {
 			margin-top: 28rpx;
 		}
+
 		.detailstop {
-			border-bottom: 7rpx soild #f7f9fa;
+			// border-bottom: 7rpx soild #cdcdcd;
+			border-bottom: 2rpx #e6e6e6 solid;
 		}
+
 		.title {
 			font-size: 30rpx;
-		
+
 			.cnumber {
 				font-size: 21rpx;
 				color: #999999;
 				margin-left: 12rpx;
 			}
 		}
-		
-		
+
+
 
 		.detailsbottom {
 			background-color: #ffffff;
 			border-top: 7rpx soild #A0CFFF;
+
 			.comment {
 				font-size: 26rpx;
 				border-bottom: 2rpx #e6e6e6 soild;
@@ -245,13 +266,14 @@
 			}
 		}
 
-		
+
 	}
 
 	.chapter_list {
 		padding-left: 30rpx;
 		padding-right: 30rpx;
 		font-weight: bold;
+
 		.chapter {
 			margin-top: 30rpx;
 
@@ -279,8 +301,11 @@
 		left: 0;
 		width: 100%;
 		height: 97rpx;
+		display: flex;
+		justify-content: space-between;
 
 		.chapter_first {
+			width: 66%;
 			height: 97rpx;
 			line-height: 97rpx;
 			text-align: start;
@@ -292,6 +317,7 @@
 		}
 
 		.start_button {
+			width: 34%;
 			height: 97rpx;
 			font-weight: bold;
 			line-height: 97rpx;

@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.u-avatar.data-v-5d4c9a7b {
+.u-avatar.data-v-26e0bf88 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: inline-flex;
@@ -39,7 +39,7 @@
   border-radius: 10px;
   overflow: hidden;
 }
-.u-avatar-img.data-v-5d4c9a7b {
+.u-avatar-img.data-v-26e0bf88 {
   width: 100%;
   height: 100%;
 }

@@ -45,7 +45,7 @@
 				loadStatus: 'loadmore',
 				booklist: [],
 				startlem: 0,
-				pageSize: 3,
+				pageSize: 10,
 				userInfo:{}
 			}
 		},

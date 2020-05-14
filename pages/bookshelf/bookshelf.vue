@@ -1,13 +1,13 @@
 <template>
 	<view>
 		<view class="top_box">
-			<view class="user_box" @click="show=true" v-if="userInfo.hasLogin==false">
+			<view class="user_box" @click="showAS" v-if="userInfo.hasLogin==false">
 				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
 				<view class="user_name">
 					点击登录
 				</view>
 			</view>
-			<view class="user_box" @click="show=true" v-if="userInfo.hasLogin==true">
+			<view class="user_box" @click="showAS" v-if="userInfo.hasLogin==true">
 				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
 				<view class="user_name">
 					{{userInfo.nick_name}}
@@ -34,18 +34,17 @@
 				<u-col span="12">
 					<view class="title"><text>我的收藏</text></view>
 				</u-col>
-				<u-col span="4" v-for="(item,index) in favors" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.book_id,item.user_id)">
-						<image :src="item.book.cover_url" mode="widthFix"></image>
-						<view class="book_name">
-							{{item.book.book_name}}
-						</view>
-					</view>
-				</u-col>
 			</u-row>
+			<view class="booklist_box">
+				<view class="carton_box_3" v-for="(item,index) in favors" v-bind:key="item.id" @click="gotocomicdetails(item.book_id,item.user_id)">
+					<image :src="item.book.cover_url" mode="widthFix"></image>
+					<view class="book_name">
+						{{item.book.book_name}}
+					</view>
+				</view>
+			</view>
 			<u-empty text="你还没有收藏作品哦!" v-if="favors.length===0"></u-empty>
 		</view>
-		<u-action-sheet :list="list" v-model="show" @click="gotologin"></u-action-sheet>
 	</view>
 </template>
 
@@ -55,11 +54,7 @@
 		data() {
 			return {
 				userInfo: {},
-				favors: [],
-				list: [{
-					text: '切换用户'
-				}],
-				show: false
+				favors: []
 			};
 		},
 		onLoad: function() {
@@ -88,6 +83,22 @@
 					}
 				});
 			},
+			showAS(){
+				uni.showActionSheet({
+					itemList: ['切换用户'],
+					success: function (res) {
+						// console.log('选中了第' + (res.tapIndex + 1) + '个按钮');
+						// this.gotologin();
+						uni.navigateTo({
+							url: '../login/login'
+						})
+					},
+					fail: function (res) {
+						console.log(res.errMsg);
+					}
+				});
+			}
+			,
 			gotochapterdetail(id) {
 				uni.navigateTo({
 					url: '../chapterdetail/chapterdetail?id=' + id
@@ -188,6 +199,29 @@
 				overflow: hidden;
 				height: 60rpx;
 			}
+		}
+	}
+	.booklist_box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: start;
+	}
+	
+	.carton_box_3{
+		margin-top: 25rpx;
+		width: 32%;
+		margin-left: 1%;
+		image {
+			width: 100%;
+			border-radius: 5rpx;
+		}
+		
+		.book_name {
+			font-weight: bold;
+			font-size: 28rpx;
+			line-height: 30rpx;
+			overflow: hidden;
+			height: 60rpx;
 		}
 	}
 </style>

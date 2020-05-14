@@ -3,5 +3,14 @@
 }
 .bottom_nav {
   padding: 28rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.bottom_nav view {
+  width: 48%;
 }
 

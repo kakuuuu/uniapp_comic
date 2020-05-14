@@ -1,27 +1,53 @@
-.discover.data-v-ae4f7ffe {
+.discover.data-v-466e8fce {
   margin-left: 16rpx;
   margin-right: 16rpx;
 }
-.button_view.data-v-ae4f7ffe {
+.button_view.data-v-466e8fce {
   margin-top: 44rpx;
 }
-.swiper.data-v-ae4f7ffe {
+.swiper.data-v-466e8fce {
   margin-top: 28rpx;
 }
-.mid-content .title.data-v-ae4f7ffe {
+.mid-content .title.data-v-466e8fce {
   margin-top: 64rpx;
 }
-.mid-content .title text.data-v-ae4f7ffe {
+.mid-content .title text.data-v-466e8fce {
   font-size: 42rpx;
 }
-.carton_box.data-v-ae4f7ffe {
-  margin-top: 25rpx;
+.booklist_box.data-v-466e8fce {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
-.carton_box image.data-v-ae4f7ffe {
+.carton_box_2.data-v-466e8fce {
+  margin-top: 25rpx;
+  width: 49%;
+}
+.carton_box_2 image.data-v-466e8fce {
   width: 100%;
   border-radius: 5rpx;
 }
-.carton_box .book_name.data-v-ae4f7ffe {
+.carton_box_2 .book_name.data-v-466e8fce {
+  font-weight: bold;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  height: 60rpx;
+}
+.carton_box_3.data-v-466e8fce {
+  margin-top: 25rpx;
+  width: 32%;
+}
+.carton_box_3 image.data-v-466e8fce {
+  width: 100%;
+  border-radius: 5rpx;
+}
+.carton_box_3 .book_name.data-v-466e8fce {
   font-weight: bold;
   font-size: 28rpx;
   line-height: 30rpx;

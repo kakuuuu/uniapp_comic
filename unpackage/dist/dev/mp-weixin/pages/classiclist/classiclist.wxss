@@ -1,18 +1,18 @@
-.carton_box.data-v-2fb09103 {
+.carton_box.data-v-2d6d1310 {
   border-bottom: 3rpx solid #e6e6e6;
   background-color: #f7f9fa;
 }
-.carton_box image.data-v-2fb09103 {
+.carton_box image.data-v-2d6d1310 {
   width: 100%;
 }
-.carton_box .book_name.data-v-2fb09103 {
+.carton_box .book_name.data-v-2d6d1310 {
   font-size: 40rpx;
   line-height: 40rpx;
   color: #181818;
   overflow: hidden;
   height: 80rpx;
 }
-.carton_box .author_box.data-v-2fb09103 {
+.carton_box .author_box.data-v-2d6d1310 {
   font-size: 32rpx;
   line-height: 32rpx;
   color: #999999;

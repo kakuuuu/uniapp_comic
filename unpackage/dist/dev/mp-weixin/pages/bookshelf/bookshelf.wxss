@@ -1,10 +1,10 @@
-.top_box.data-v-3a531d36 {
+.top_box.data-v-741801f2 {
   background-color: #ffdd30;
   height: 210rpx;
   width: 100%;
   position: relative;
 }
-.top_box .user_box.data-v-3a531d36 {
+.top_box .user_box.data-v-741801f2 {
   margin-left: 22rpx;
   margin-right: 22rpx;
   height: 110rpx;
@@ -19,14 +19,14 @@
           align-items: center;
   font-size: 44rpx;
 }
-.top_box .user_box .avatar.data-v-3a531d36 {
+.top_box .user_box .avatar.data-v-741801f2 {
   height: 100%;
   width: 100;
 }
-.top_box .user_box .user_name.data-v-3a531d36 {
+.top_box .user_box .user_name.data-v-741801f2 {
   margin-left: 28rpx;
 }
-.top_box .vip_box.data-v-3a531d36 {
+.top_box .vip_box.data-v-741801f2 {
   border-radius: 12rpx;
   margin-left: 28rpx;
   margin-right: 28rpx;
@@ -46,7 +46,7 @@
   -webkit-transform: translate(0, 50%);
           transform: translate(0, 50%);
 }
-.top_box .vip_box view.data-v-3a531d36 {
+.top_box .vip_box view.data-v-741801f2 {
   margin-left: 42rpx;
   font-size: 28rpx;
   display: -webkit-box;
@@ -59,25 +59,51 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.top_box .vip_box view text.data-v-3a531d36 {
+.top_box .vip_box view text.data-v-741801f2 {
   margin-left: 14rpx;
 }
-.bookshelf.data-v-3a531d36 {
+.bookshelf.data-v-741801f2 {
   margin-top: 100rpx;
   margin-left: 16rpx;
   margin-right: 16rpx;
 }
-.bookshelf .title text.data-v-3a531d36 {
+.bookshelf .title text.data-v-741801f2 {
   font-size: 30rpx;
 }
-.bookshelf .carton_box.data-v-3a531d36 {
+.bookshelf .carton_box.data-v-741801f2 {
   margin-top: 25rpx;
 }
-.bookshelf .carton_box image.data-v-3a531d36 {
+.bookshelf .carton_box image.data-v-741801f2 {
   width: 100%;
   border-radius: 5rpx;
 }
-.bookshelf .carton_box .book_name.data-v-3a531d36 {
+.bookshelf .carton_box .book_name.data-v-741801f2 {
+  font-weight: bold;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  height: 60rpx;
+}
+.booklist_box.data-v-741801f2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+}
+.carton_box_3.data-v-741801f2 {
+  margin-top: 25rpx;
+  width: 32%;
+  margin-left: 1%;
+}
+.carton_box_3 image.data-v-741801f2 {
+  width: 100%;
+  border-radius: 5rpx;
+}
+.carton_box_3 .book_name.data-v-741801f2 {
   font-weight: bold;
   font-size: 28rpx;
   line-height: 30rpx;

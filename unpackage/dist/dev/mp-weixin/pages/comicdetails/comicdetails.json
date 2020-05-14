@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
     "u-row": "/uview-ui/components/u-row/u-row",
     "u-col": "/uview-ui/components/u-col/u-col",
     "u-avatar": "/uview-ui/components/u-avatar/u-avatar"

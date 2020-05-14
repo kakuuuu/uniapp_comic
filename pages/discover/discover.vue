@@ -5,10 +5,10 @@
 				<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#f7f9fa" disabled="false"></u-search>
 			</view>
 			<view class="swiper">
-				<u-swiper :list="swiper_list" mode="rect"></u-swiper>
+				<u-swiper :list="swiper_list" name="pic_name" mode="rect" @click="clickswiper"></u-swiper>
 			</view>
-			<u-row gutter="16">
-				<view class="button_view">
+			<view class="button_view">
+				<u-row gutter="16">
 					<u-col span="6">
 						<u-button @click="gotoclassification">
 							<u-icon name="grid"></u-icon>漫画分类<u-icon name="arrow-right"></u-icon>
@@ -19,56 +19,60 @@
 							<u-icon name="bookmark"></u-icon>热门排行<u-icon name="arrow-right"></u-icon>
 						</u-button>
 					</u-col>
-				</view>
-			</u-row>
+				</u-row>
+			</view>
 		</view>
 		<view class="mid-content">
-			<u-row gutter="16">
-				<u-col span="12">
-					<view class="title"><text>经典必看</text></view>
-				</u-col>
-				<u-col span="4" v-for="(item,index) in classiclist" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.id,userInfo.uid)">
-						<image :src="item.cover_url" mode="widthFix"></image>
-						<view class="book_name">
-							{{item.book_name}}
-						</view>
+			<view>
+				<u-row gutter="16">
+					<u-col span="12">
+						<view class="title"><text>经典必看</text></view>
+					</u-col>
+				</u-row>
+			</view>
+			<view class="booklist_box">
+				<view class="carton_box_3" v-for="(item,index) in classiclist" v-bind:key="item.id" @click="gotocomicdetails(item.id,userInfo.uid)">
+					<image :src="item.cover_url" mode="widthFix"></image>
+					<view class="book_name">
+						{{item.book_name}}
 					</view>
-				</u-col>
-			</u-row>
-			<u-row gutter="16">
-				<view class="button_view">
+				</view>
+			</view>
+			<view class="button_view">
+				<u-row gutter="16">
 					<u-col span="6">
 						<u-button @click="gotoclassic">查看更多</u-button>
 					</u-col>
 					<u-col span="6">
 						<u-button @click="changeclassiclist">换一换</u-button>
 					</u-col>
-				</view>
-			</u-row>
-			<u-row gutter="16">
-				<u-col span="12">
-					<view class="title"><text>今日更新</text></view>
-				</u-col>
-				<u-col span="6" v-for="(item,index) in newlist" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.id,userInfo.uid)">
-						<image :src="item.cover_url" mode="widthFix"></image>
-						<view class="book_name">
-							{{item.book_name}}
-						</view>
+				</u-row>
+			</view>
+			<view>
+				<u-row gutter="16">
+					<u-col span="12">
+						<view class="title"><text>今日更新</text></view>
+					</u-col>
+				</u-row>
+			</view>
+			<view class="booklist_box">
+				<view class="carton_box_2" v-for="(item,index) in newlist" v-bind:key="item.id" @click="gotocomicdetails(item.id,userInfo.uid)">
+					<image :src="item.cover_url" mode="widthFix"></image>
+					<view class="book_name">
+						{{item.book_name}}
 					</view>
-				</u-col>
-			</u-row>
-			<u-row gutter="16">
-				<view class="button_view">
+				</view>
+			</view>
+			<view class="button_view">
+				<u-row gutter="16">
 					<u-col span="6">
 						<u-button @click="gotoupdate">查看更多</u-button>
 					</u-col>
 					<u-col span="6">
 						<u-button @click="changenewlist">换一换</u-button>
 					</u-col>
-				</view>
-			</u-row>
+				</u-row>
+			</view>
 		</view>
 	</view>
 </template>
@@ -78,24 +82,17 @@
 	export default {
 		data() {
 			return {
-				swiper_list: [{
-						image: 'https://hbimg.huabanimg.com/551df779fe9e2a06d12d3abb289793391e8c3a2929b7b-EUhxjx_fw658/format/webp'
-					},
-					{
-						image: 'https://hbimg.huabanimg.com/a446bc258926bebed3c98daecfb54365a88e622a1dba8f-QFhbKV_fw658/format/webp'
-					},
-					{
-						image: 'https://hbimg.huabanimg.com/260be1f68cac56497f7a14272d32a1a2af584eb81c6e5-96Z8bZ_fw658/format/webp'
-					}
+				swiper_list: [
 				],
 				truelist: [],
 				newlist: [],
 				classiclist: [],
-				userInfo:{}
+				userInfo: {}
 			};
 		},
 		onLoad: function() {
 			this.getlist();
+			this.getbanners();
 			this.userInfo = this.$store.state;
 		},
 		methods: {
@@ -108,13 +105,10 @@
 			async getlist() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/books/getNewest', //仅为示例，并非真实接口地址。
+					url: 'http://www.liaowang.xyz/app/books/getNewest', 
 					data: {
 						time: key[0],
 						token: key[1]
-					},
-					header: {
-						'custom-header': 'hello' //自定义请求头信息
 					},
 					success: (res) => {
 						this.truelist = res.data.newest;
@@ -124,6 +118,21 @@
 						this.classiclist = this.truelist.sort(function() {
 							return .5 - Math.random();
 						}).slice(0, 6);
+					}
+				});
+			},
+			async getbanners(){
+				var key = await this.getapi();
+				uni.request({
+					url: 'http://www.liaowang.xyz/app/tags/getBanners',
+					data: {
+						time: key[0],
+						token: key[1],
+						num:3
+					},
+					success: (res) => {
+						this.swiper_list=res.data.banners;
+						console.log(res.data)
 					}
 				});
 			},
@@ -166,6 +175,10 @@
 				uni.navigateTo({
 					url: '../search/search'
 				})
+			},
+			clickswiper(index){
+				console.log(index);
+				this.gotocomicdetails(this.swiper_list[index].book_id,this.userInfo.uid)
 			}
 
 		}
@@ -196,14 +209,38 @@
 		}
 	}
 
-	.carton_box {
+	.booklist_box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.carton_box_2 {
 		margin-top: 25rpx;
+		width: 49%;
 
 		image {
 			width: 100%;
 			border-radius: 5rpx;
 		}
 
+		.book_name {
+			font-weight: bold;
+			font-size: 28rpx;
+			line-height: 30rpx;
+			overflow: hidden;
+			height: 60rpx;
+		}
+	}
+	.carton_box_3{
+		margin-top: 25rpx;
+		width: 32%;
+		
+		image {
+			width: 100%;
+			border-radius: 5rpx;
+		}
+		
 		.book_name {
 			font-weight: bold;
 			font-size: 28rpx;

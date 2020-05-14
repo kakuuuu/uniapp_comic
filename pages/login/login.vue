@@ -1,6 +1,6 @@
 <template>
 	<view class="login">
-		<u-row gutter="16">
+		<!-- <u-row gutter="16">
 			<u-col span="12">
 				<u-cell-group>
 					<u-field v-model="username" label="用户名" placeholder="请填写用户名">
@@ -16,14 +16,23 @@
 						}"
 				 @click="userlogin">登录</u-button>
 			</u-col>
-			<!-- <u-col span="12">
-				<u-button shape="square" :custom-style="{
-							'background-color': '#fed23d',
-							'font-size': '30rpx'
-						}"
-				 @click="gethistory">获取</u-button>
-			</u-col> -->
-		</u-row>
+		</u-row> -->
+		<view class="login_form">
+			<u-cell-group>
+				<u-field v-model="username" label="用户名" placeholder="请填写用户名">
+				</u-field>
+				<u-field v-model="password" label="密码" placeholder="请填写密码" password="true">
+				</u-field>
+			</u-cell-group>
+		</view>
+		<view class="login_button">
+			<u-button shape="square" :custom-style="{
+						'background-color': '#fed23d',
+						'font-size': '30rpx','color':'#000000','height':'92rpx'
+					}"
+			 @click="userlogin">登录</u-button>
+		</view>
+		
 	</view>
 </template>
 
@@ -75,5 +84,12 @@
 		margin-right: 70rpx;
 		display: flex;
 		justify-content: center;
+		flex-wrap: wrap;
+		.login_form{
+			width: 100%;
+		}
+		.login_button{
+			width: 100%;
+		}
 	}
 </style>

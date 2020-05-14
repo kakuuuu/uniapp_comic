@@ -7,5 +7,13 @@
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.login .login_form {
+  width: 100%;
+}
+.login .login_button {
+  width: 100%;
 }
 

@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.u-waterfall.data-v-301fb911 {
+.u-waterfall.data-v-70f5205e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -36,7 +36,7 @@
   -webkit-align-items: flex-start;
           align-items: flex-start;
 }
-.u-cloumn.data-v-301fb911 {
+.u-cloumn.data-v-70f5205e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -49,7 +49,7 @@
           flex-direction: column;
   height: auto;
 }
-.u-image.data-v-301fb911 {
+.u-image.data-v-70f5205e {
   width: 100%;
 }
 

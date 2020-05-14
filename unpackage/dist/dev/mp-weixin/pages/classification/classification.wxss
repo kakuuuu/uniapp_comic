@@ -1,19 +1,34 @@
-.classification.data-v-4c09fae1 {
+.classification.data-v-b2e401a4 {
   margin-left: 16rpx;
   margin-right: 16rpx;
   background-color: #fafbfc;
 }
-.tabs_box.data-v-4c09fae1 {
+.tabs_box.data-v-b2e401a4 {
   border-bottom: 3rpx solid #f3f3f3;
 }
-.booklist.data-v-4c09fae1 {
+.booklist.data-v-b2e401a4 {
+  width: 100%;
   margin-top: 40rpx;
 }
-.carton_box image.data-v-4c09fae1 {
+.booklist_box.data-v-b2e401a4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+}
+.carton_box.data-v-b2e401a4 {
+  width: 32%;
+  margin-left: 1%;
+}
+.carton_box image.data-v-b2e401a4 {
   width: 100%;
   border-radius: 5rpx;
 }
-.carton_box .book_name.data-v-4c09fae1 {
+.carton_box .book_name.data-v-b2e401a4 {
   font-size: 28rpx;
   line-height: 32rpx;
   color: #181818;

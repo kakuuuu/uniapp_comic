@@ -1,5 +1,5 @@
 <template>
-	<view class="upadelist">
+	<view class="classiclist">
 		<u-empty v-if="classiclist.length===0"></u-empty>
 		<view class="carton_box" v-for="(item,index) in classiclist" v-bind:key="item.id">
 			<u-row gutter="16">

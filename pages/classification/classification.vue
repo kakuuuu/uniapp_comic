@@ -14,17 +14,16 @@
 		</view>
 		<view class="booklist">
 			<u-empty v-if="booklist.length===0"></u-empty>
-			<u-row gutter="16">
-				<u-col span="4" v-for="(item,index) in booklist" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.id,userInfo.uid)">
-						<image :src="item.cover_url" mode="widthFix"></image>
-						<view class="book_name">
-							{{item.book_name}}
-						</view>
+			<view class="booklist_box">
+				<view class="carton_box" v-for="(item,index) in booklist" v-bind:key="item.id" @click="gotocomicdetails(item.id,userInfo.uid)">
+					<image :src="item.cover_url" mode="widthFix"></image>
+					<view class="book_name">
+						{{item.book_name}}
 					</view>
-				</u-col>
-			</u-row>
+				</view>
+			</view>
 		</view>
+		<u-loadmore bg-color="rgb(255, 255, 255)" :status="loadStatus" @loadmore="getbooklist"></u-loadmore>
 	</view>
 </template>
 
@@ -49,7 +48,10 @@
 				userInfo: {},
 				tag_current: 0,
 				area_current: 0,
-				end_current: 0
+				end_current: 0,
+				loadStatus: 'loadmore',
+				startlem: 0,
+				pageSize: 10,
 			};
 		},
 		onLoad: async function() {
@@ -60,6 +62,14 @@
 		},
 		onShow: function() {
 			// this.getbooklist();
+		},
+		onReachBottom() {
+			this.loadStatus = 'loading';
+			// 模拟数据加载
+			setTimeout(() => {
+				this.getbooklist();
+				this.loadStatus = 'loadmore';
+			}, 1000)
 		},
 		methods: {
 			getapi() {
@@ -119,6 +129,7 @@
 					},
 					success: (res) => {
 						this.booklist = res.data.books;
+						this.startlem = this.startlem + this.pageSize;
 						console.log(res.data)
 					}
 				});
@@ -131,8 +142,8 @@
 						time: key[0],
 						token: key[1],
 						area: -1,
-						startlem: 0,
-						pageSize: 20
+						startlem: this.startlem,
+						pageSize: this.pageSize
 					},
 					success: (res) => {
 						this.booklist = res.data.books;
@@ -185,10 +196,17 @@
 	}
 
 	.booklist {
+		width: 100%;
 		margin-top: 40rpx;
 	}
-
+	.booklist_box{
+		display: flex;
+		flex-wrap:wrap;
+		justify-content: start;
+	}
 	.carton_box {
+		width: 32%;
+		margin-left: 1%;
 		image {
 			width: 100%;
 			border-radius: 5rpx;

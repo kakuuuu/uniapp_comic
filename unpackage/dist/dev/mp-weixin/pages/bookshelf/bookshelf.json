@@ -5,7 +5,6 @@
     "u-icon": "/uview-ui/components/u-icon/u-icon",
     "u-row": "/uview-ui/components/u-row/u-row",
     "u-col": "/uview-ui/components/u-col/u-col",
-    "u-empty": "/uview-ui/components/u-empty/u-empty",
-    "u-action-sheet": "/uview-ui/components/u-action-sheet/u-action-sheet"
+    "u-empty": "/uview-ui/components/u-empty/u-empty"
   }
 }

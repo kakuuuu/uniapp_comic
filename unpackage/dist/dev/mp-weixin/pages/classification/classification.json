@@ -2,7 +2,6 @@
   "usingComponents": {
     "u-tabsleft": "/uview-ui/components/u-tabsleft/u-tabsleft",
     "u-empty": "/uview-ui/components/u-empty/u-empty",
-    "u-row": "/uview-ui/components/u-row/u-row",
-    "u-col": "/uview-ui/components/u-col/u-col"
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
   }
 }

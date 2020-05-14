@@ -12,23 +12,24 @@
 			<u-col span="12">
 				<u-button shape="square" :custom-style="{
 							'background-color': '#fed23d',
-							'font-size': '30rpx'
+							'font-size': '30rpx','color':'#000000','height':'92rpx'
 						}"
 				 @click="userlogin">登录</u-button>
 			</u-col>
-			<u-col span="12">
+			<!-- <u-col span="12">
 				<u-button shape="square" :custom-style="{
 							'background-color': '#fed23d',
 							'font-size': '30rpx'
 						}"
 				 @click="gethistory">获取</u-button>
-			</u-col>
+			</u-col> -->
 		</u-row>
 	</view>
 </template>
 
 <script>
 	import md5 from '@/md5.js'
+	import {mapMutations} from 'vuex'
 	export default {
 		data() {
 			return {
@@ -38,6 +39,7 @@
 			};
 		},
 		methods: {
+			...mapMutations(['login']),
 			getapi() {
 				var timestamp = Date.parse(new Date());
 				var api_key = "abcde";
@@ -58,26 +60,8 @@
 					success: (res) => {
 						// this.hotlist = res.data.hots;
 						console.log(res.data)
+						this.login(res.data.userInfo)
 						this.utoken=res.data.userInfo.utoken
-						// this.gethistory();
-					}
-				});
-			},
-			async gethistory() {
-				console.log(this.utoken)
-				var key = await this.getapi();
-				uni.request({
-					url: 'http://www.liaowang.xyz/app/users/bookshelf',
-					data: {
-						time: key[0],
-						token: key[1],
-						utoken: this.utoken,
-						// uid:2
-						
-					},
-					success: (res) => {
-						// this.hotlist = res.data.hots;
-						console.log(res.data)
 					}
 				});
 			}

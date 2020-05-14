@@ -1,7 +1,7 @@
 <template>
 	<view class="search">
 		<u-search placeholder="搜索作品名" v-model="keyword" show-action="true" action-text="取消" @custom="goback" @search="searchcomic"></u-search>
-		<view class="carton_box" v-for="item in books" v-bind:key=item.id @click="gotocomicdetails(item.id,2)">
+		<view class="carton_box" v-for="item in books" v-bind:key=item.id @click="gotocomicdetails(item.id,userInfo.uid)">
 			<u-row gutter="36">
 				<u-col span="3">
 					<image :src="item.cover_url" mode="widthFix"></image>
@@ -29,9 +29,14 @@
 		data() {
 			return {
 				keyword: '',
-				books:[]
+				books:[],
+				userInfo:{}
 			};
 		},
+		onLoad:function(){
+			this.userInfo = this.$store.state;
+		}
+		,
 		methods: {
 			getapi() {
 				var timestamp = Date.parse(new Date());

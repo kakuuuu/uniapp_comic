@@ -1,6 +1,14 @@
 <script>
+	import {mapMutations} from 'vuex'
 	export default {
 		onLaunch: function() {
+			let userInfo=uni.getStorage({
+				key:'userInfo',
+				success: (res) => {
+					this.login(res.data);
+					console.log(res.data);
+				}
+			})
 			console.log('App Launch')
 		},
 		onShow: function() {
@@ -8,6 +16,9 @@
 		},
 		onHide: function() {
 			console.log('App Hide')
+		},
+		methods:{
+			...mapMutations(['login'])
 		}
 	}
 </script>

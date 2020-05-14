@@ -12,7 +12,9 @@
 			"style": {}
 		}, {
 			"path": "pages/bookshelf/bookshelf",
-			"style": {}
+			"style": {
+				"navigationBarBackgroundColor":"#ffdd30"
+			}
 		}
 	    ,{
             "path" : "pages/updatelist/updatelist",
@@ -28,7 +30,8 @@
         }
         ,{
             "path" : "pages/chapterdetail/chapterdetail",
-            "style" : {}
+            "style" : {
+			}
         }
         ,{
             "path" : "pages/search/search",

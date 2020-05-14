@@ -1,22 +1,51 @@
 <template>
-	<view class="bookshelf">
+	<view>
 		<view class="top_box">
-			<view class="user_box" @click="gotologin">
+			<view class="user_box" @click="show=true" v-if="userInfo.hasLogin==false">
 				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
 				<view class="user_name">
-					测试用户1
+					点击登录
+				</view>
+			</view>
+			<view class="user_box" @click="show=true" v-if="userInfo.hasLogin==true">
+				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
+				<view class="user_name">
+					{{userInfo.nick_name}}
 				</view>
 			</view>
 			<view class="vip_box">
-				<view>
-					okk币
+				<view class="vip_tag">
+					<u-icon name="bag"></u-icon>
+					<text>
+						okk币
+					</text>
 				</view>
-				<view>
-					会员中心
+				<view class="vip_tag">
+					<u-icon name="integral"></u-icon>
+					<text>
+						会员中心
+					</text>
 				</view>
 			</view>
 
 		</view>
+		<view class="bookshelf">
+			<u-row gutter="16">
+				<u-col span="12">
+					<view class="title"><text>我的收藏</text></view>
+				</u-col>
+				<u-col span="4" v-for="(item,index) in favors" v-bind:key="item.id">
+					<view class="carton_box" @click="gotocomicdetails(item.book_id,item.user_id)">
+						<image :src="item.book.cover_url" mode="widthFix"></image>
+						<view class="book_name">
+							{{item.book.book_name}}
+						</view>
+					</view>
+				</u-col>
+			</u-row>
+			<u-empty text="你还没有收藏作品哦!" v-if="favors.length===0"></u-empty>
+		</view>
+		<u-action-sheet :list="list" v-model="show" @click="gotologin"></u-action-sheet>
 	</view>
 </template>
 
@@ -25,14 +54,17 @@
 	export default {
 		data() {
 			return {
-
+				userInfo: {},
+				favors: [],
+				list: [{
+					text: '切换用户'
+				}],
+				show: false
 			};
 		},
 		onLoad: function() {
-			this.gethistory();
-		},
-		onShow:function(){
-			this.gethistory();
+			this.getbookshelf();
+			this.userInfo = this.$store.state;
 		},
 		methods: {
 			getapi() {
@@ -41,34 +73,38 @@
 				return [timestamp, md5(api_key + timestamp)];
 				//返回api_key+时间戳md5加密
 			},
-			async gethistory() {
+			async getbookshelf() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/users/history',
+					url: 'http://www.liaowang.xyz/app/users/bookshelf',
 					data: {
 						time: key[0],
 						token: key[1],
-						pid:2
+						utoken: this.$store.state.utoken
 					},
 					success: (res) => {
-						// this.hotlist = res.data.hots;
-						console.log(res.data)
+						this.favors = res.data.favors;
+						console.log(res.data);
 					}
 				});
+			},
+			gotochapterdetail(id) {
+				uni.navigateTo({
+					url: '../chapterdetail/chapterdetail?id=' + id
+				})
 			},
 			gotocomicdetails(id, uid) {
 				uni.navigateTo({
 					url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid
 				})
-			}
-			,
+			},
 			gotologin() {
 				uni.navigateTo({
 					url: '../login/login'
 				})
 			}
 		}
-		
+
 	}
 </script>
 
@@ -82,7 +118,7 @@
 		.user_box {
 			margin-left: 22rpx;
 			margin-right: 22rpx;
-			margin-top: 22rpx;
+			// margin-top: 22rpx;
 			height: 110rpx;
 			display: flex;
 			justify-content: start;
@@ -110,6 +146,48 @@
 			justify-content: start;
 			align-items: center;
 			transform: translate(0, 50%);
+
+			view {
+				margin-left: 42rpx;
+				font-size: 28rpx;
+				// font-weight: bold;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				text {
+					margin-left: 14rpx;
+				}
+			}
+		}
+	}
+
+	.bookshelf {
+		margin-top: 100rpx;
+		margin-left: 16rpx;
+		margin-right: 16rpx;
+
+		.title {
+			text {
+				font-size: 30rpx;
+			}
+		}
+
+		.carton_box {
+			margin-top: 25rpx;
+
+			image {
+				width: 100%;
+				border-radius: 5rpx;
+			}
+
+			.book_name {
+				font-weight: bold;
+				font-size: 28rpx;
+				line-height: 30rpx;
+				overflow: hidden;
+				height: 60rpx;
+			}
 		}
 	}
 </style>

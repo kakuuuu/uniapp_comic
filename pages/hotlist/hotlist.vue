@@ -8,7 +8,7 @@
 			</view>
 		</view>
 		<view class="carton_list">
-			<view class="carton_box" v-for="(item,index) in hotlist" v-bind:key="item.id" @click="gotocomicdetails(item.id,2)">
+			<view class="carton_box" v-for="(item,index) in hotlist" v-bind:key="item.id" @click="gotocomicdetails(item.id,userInfo.uid)">
 				<u-row gutter="16">
 					<u-col span="5">
 						<image :src="item.cover_url" mode="widthFix"></image>
@@ -41,10 +41,12 @@
 		data() {
 			return {
 				hotlist: [],
+				userInfo:{}
 			};
 		},
 		onLoad: function() {
-			this.getlist()
+			this.getlist();
+			this.userInfo = this.$store.state;
 		},
 		methods: {
 			getapi() {
@@ -107,8 +109,8 @@
 
 	.carton_list {
 		margin-top: 28rpx;
-		margin-left: 22rpx;
-		margin-right: 22rpx;
+		margin-left: 16rpx;
+		margin-right: 16rpx;
 	}
 
 	.carton_box {

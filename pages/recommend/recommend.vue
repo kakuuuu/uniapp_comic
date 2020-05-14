@@ -46,10 +46,12 @@
 				booklist: [],
 				startlem: 0,
 				pageSize: 3,
+				userInfo:{}
 			}
 		},
 		onLoad() {
 			this.getbooklist();
+			this.userInfo = this.$store.state;
 		},
 		onReachBottom() {
 			this.loadStatus = 'loading';

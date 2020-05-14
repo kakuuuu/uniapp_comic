@@ -28,8 +28,8 @@
 }
 .carton_list.data-v-c8cf0c0e {
   margin-top: 28rpx;
-  margin-left: 22rpx;
-  margin-right: 22rpx;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
 }
 .carton_box.data-v-c8cf0c0e {
   border-bottom: 3rpx solid #e6e6e6;

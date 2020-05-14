@@ -16,7 +16,7 @@
 			<u-empty v-if="booklist.length===0"></u-empty>
 			<u-row gutter="16">
 				<u-col span="4" v-for="(item,index) in booklist" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.id,2)">
+					<view class="carton_box" @click="gotocomicdetails(item.id,userInfo.uid)">
 						<image :src="item.cover_url" mode="widthFix"></image>
 						<view class="book_name">
 							{{item.book_name}}
@@ -46,6 +46,7 @@
 					id: 1
 				}, ],
 				booklist: [],
+				userInfo: {},
 				tag_current: 0,
 				area_current: 0,
 				end_current: 0
@@ -55,7 +56,7 @@
 			await this.gettags();
 			await this.getarealist();
 			this.initbooklist()
-
+			this.userInfo = this.$store.state;
 		},
 		onShow: function() {
 			// this.getbooklist();
@@ -174,21 +175,23 @@
 
 <style lang="less" scoped>
 	.classification {
-		margin-left: 22rpx;
-		margin-right: 22rpx;
+		margin-left: 16rpx;
+		margin-right: 16rpx;
 		background-color: #fafbfc;
 	}
 
-	.tabs_box{
+	.tabs_box {
 		border-bottom: 3rpx solid #f3f3f3;
 	}
-	.booklist{
+
+	.booklist {
 		margin-top: 40rpx;
 	}
+
 	.carton_box {
 		image {
 			width: 100%;
-			border-radius:5rpx;
+			border-radius: 5rpx;
 		}
 
 		.book_name {

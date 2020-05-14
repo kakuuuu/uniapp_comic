@@ -7,7 +7,6 @@
 .top_box .user_box.data-v-3a531d36 {
   margin-left: 22rpx;
   margin-right: 22rpx;
-  margin-top: 22rpx;
   height: 110rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -46,5 +45,43 @@
           align-items: center;
   -webkit-transform: translate(0, 50%);
           transform: translate(0, 50%);
+}
+.top_box .vip_box view.data-v-3a531d36 {
+  margin-left: 42rpx;
+  font-size: 28rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.top_box .vip_box view text.data-v-3a531d36 {
+  margin-left: 14rpx;
+}
+.bookshelf.data-v-3a531d36 {
+  margin-top: 100rpx;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+}
+.bookshelf .title text.data-v-3a531d36 {
+  font-size: 30rpx;
+}
+.bookshelf .carton_box.data-v-3a531d36 {
+  margin-top: 25rpx;
+}
+.bookshelf .carton_box image.data-v-3a531d36 {
+  width: 100%;
+  border-radius: 5rpx;
+}
+.bookshelf .carton_box .book_name.data-v-3a531d36 {
+  font-weight: bold;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  height: 60rpx;
 }
 

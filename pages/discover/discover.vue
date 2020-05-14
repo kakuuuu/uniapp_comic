@@ -28,7 +28,7 @@
 					<view class="title"><text>经典必看</text></view>
 				</u-col>
 				<u-col span="4" v-for="(item,index) in classiclist" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.id,2)">
+					<view class="carton_box" @click="gotocomicdetails(item.id,userInfo.uid)">
 						<image :src="item.cover_url" mode="widthFix"></image>
 						<view class="book_name">
 							{{item.book_name}}
@@ -51,7 +51,7 @@
 					<view class="title"><text>今日更新</text></view>
 				</u-col>
 				<u-col span="6" v-for="(item,index) in newlist" v-bind:key="item.id">
-					<view class="carton_box" @click="gotocomicdetails(item.id,2)">
+					<view class="carton_box" @click="gotocomicdetails(item.id,userInfo.uid)">
 						<image :src="item.cover_url" mode="widthFix"></image>
 						<view class="book_name">
 							{{item.book_name}}
@@ -90,8 +90,13 @@
 				],
 				truelist: [],
 				newlist: [],
-				classiclist: []
+				classiclist: [],
+				userInfo:{}
 			};
+		},
+		onLoad: function() {
+			this.getlist();
+			this.userInfo = this.$store.state;
 		},
 		methods: {
 			getapi() {
@@ -163,17 +168,14 @@
 				})
 			}
 
-		},
-		onLoad: function() {
-			this.getlist()
 		}
 	}
 </script>
 
 <style lang="less" scoped>
 	.discover {
-		margin-left: 24rpx;
-		margin-right: 23rpx;
+		margin-left: 16rpx;
+		margin-right: 16rpx;
 	}
 
 	.button_view {
@@ -199,7 +201,7 @@
 
 		image {
 			width: 100%;
-			border-radius:5rpx;
+			border-radius: 5rpx;
 		}
 
 		.book_name {

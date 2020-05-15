@@ -1,0 +1,20 @@
+.registered.data-v-619fe92e {
+  margin-left: 70rpx;
+  margin-right: 70rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.registered .registered_form.data-v-619fe92e {
+  width: 100%;
+}
+.registered .registered_button.data-v-619fe92e {
+  margin-top: 40rpx;
+  width: 100%;
+}
+

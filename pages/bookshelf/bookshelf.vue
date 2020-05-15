@@ -1,16 +1,19 @@
 <template>
 	<view>
 		<view class="top_box">
-			<view class="user_box" @click="showAS" v-if="userInfo.hasLogin==false">
+			<view class="user_box" v-if="userInfo.hasLogin==false">
 				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
-				<view class="user_name">
+				<view class="user_name" @click="showAS">
 					点击登录
 				</view>
 			</view>
-			<view class="user_box" @click="showAS" v-if="userInfo.hasLogin==true">
+			<view class="user_box" v-if="userInfo.hasLogin==true">
 				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
-				<view class="user_name">
+				<view class="user_name"  @click="showAS">
 					{{userInfo.nick_name}}
+				</view>
+				<view>
+					<u-icon name="edit-pen" size="22" @click="changenickname"></u-icon>
 				</view>
 			</view>
 			<view class="vip_box">
@@ -27,7 +30,6 @@
 					</text>
 				</view>
 			</view>
-
 		</view>
 		<view class="bookshelf">
 			<u-row gutter="16">
@@ -37,7 +39,7 @@
 			</u-row>
 			<view class="booklist_box">
 				<view class="carton_box_3" v-for="(item,index) in favors" v-bind:key="item.id" @click="gotocomicdetails(item.book_id,item.user_id)">
-					<image :src="item.book.cover_url" mode="widthFix"></image>
+					<image :src="item.book.cover_url" mode="aspectFill"></image>
 					<view class="book_name">
 						{{item.book.book_name}}
 					</view>
@@ -82,6 +84,11 @@
 						console.log(res.data);
 					}
 				});
+			},
+			changenickname(){
+				uni.navigateTo({
+					url:'../changenickname/changenickname'
+				})
 			},
 			showAS(){
 				uni.showActionSheet({
@@ -183,23 +190,6 @@
 				font-size: 30rpx;
 			}
 		}
-
-		.carton_box {
-			margin-top: 25rpx;
-
-			image {
-				width: 100%;
-				border-radius: 5rpx;
-			}
-
-			.book_name {
-				font-weight: bold;
-				font-size: 28rpx;
-				line-height: 30rpx;
-				overflow: hidden;
-				height: 60rpx;
-			}
-		}
 	}
 	.booklist_box {
 		display: flex;
@@ -213,6 +203,7 @@
 		margin-left: 1%;
 		image {
 			width: 100%;
+			height: 314rpx;
 			border-radius: 5rpx;
 		}
 		

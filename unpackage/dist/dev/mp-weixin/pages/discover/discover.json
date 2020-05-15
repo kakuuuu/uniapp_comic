@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "u-search": "/uview-ui/components/u-search/u-search",
     "u-swiper": "/uview-ui/components/u-swiper/u-swiper",

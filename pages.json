@@ -5,11 +5,15 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/discover/discover",
-			"style": {}
+			"style": {
+				"enablePullDownRefresh":true
+			}
 		},
 		{
 			"path": "pages/recommend/recommend",
-			"style": {}
+			"style": {
+				"enablePullDownRefresh":true
+			}
 		}, {
 			"path": "pages/bookshelf/bookshelf",
 			"style": {
@@ -47,6 +51,14 @@
         }
         ,{
             "path" : "pages/login/login",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/registered/registered",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/changenickname/changenickname",
             "style" : {}
         }
     ],

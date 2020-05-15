@@ -1,7 +1,7 @@
 <template>
 	<view class="classification">
 		<view class="tabs_box">
-			<u-tabsleft :list="tags" :is-scroll="false" :current="tag_current" name="tag_name" @change="change_tag" font-size="26"
+			<u-tabsleft :list="tags" :is-scroll="true" :current="tag_current" name="tag_name" @change="change_tag" font-size="26"
 			 inactive-color="#666666" active-color="#333333" bold="false" show-bar="false"></u-tabsleft>
 		</view>
 		<view class="tabs_box">
@@ -36,7 +36,7 @@
 				arealist: [],
 				endlist: [{
 					name: "全部",
-					id: null
+					id: -1
 				}, {
 					name: "连载中",
 					id: 0
@@ -124,11 +124,11 @@
 						area: this.arealist[this.area_current].id,
 						tag: this.tags[this.tag_current].name,
 						end: this.endlist[this.end_current].id,
-						startItem: 0,
-						pageSize: 20
+						startItem: this.startlem,
+						pageSize: this.pageSize
 					},
 					success: (res) => {
-						this.booklist = res.data.books;
+						this.booklist = this.booklist.concat(res.data.books);
 						this.startlem = this.startlem + this.pageSize;
 						console.log(res.data)
 					}
@@ -146,21 +146,29 @@
 						pageSize: this.pageSize
 					},
 					success: (res) => {
-						this.booklist = res.data.books;
+						console.log(res.data)
+						this.booklist = this.booklist.concat(res.data.books);
+						this.startlem = this.startlem + this.pageSize;
 					}
 				});
 			},
 			change_tag(index) {
 				// if(index===0)
 				this.tag_current = index;
+				this.booklist=[];
+				this.startlem=0;
 				this.getbooklist();
 			},
 			change_area(index) {
 				this.area_current = index;
+				this.booklist=[];
+				this.startlem=0;
 				this.getbooklist();
 			},
 			change_end(index) {
 				this.end_current = index;
+				this.booklist=[];
+				this.startlem=0;
 				this.getbooklist();
 			},
 			gettname(i) {

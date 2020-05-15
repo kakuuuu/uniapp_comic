@@ -1,0 +1,20 @@
+.nickname.data-v-4781efa4 {
+  margin-left: 70rpx;
+  margin-right: 70rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.nickname .registered_form.data-v-4781efa4 {
+  width: 100%;
+}
+.nickname .nickname_button.data-v-4781efa4 {
+  margin-top: 40rpx;
+  width: 100%;
+}
+

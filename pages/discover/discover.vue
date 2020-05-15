@@ -32,7 +32,7 @@
 			</view>
 			<view class="booklist_box">
 				<view class="carton_box_3" v-for="(item,index) in classiclist" v-bind:key="item.id" @click="gotocomicdetails(item.id,userInfo.uid)">
-					<image :src="item.cover_url" mode="widthFix"></image>
+					<image :src="item.cover_url" mode="aspectFill" lazy-load=true></image>
 					<view class="book_name">
 						{{item.book_name}}
 					</view>
@@ -57,7 +57,7 @@
 			</view>
 			<view class="booklist_box">
 				<view class="carton_box_2" v-for="(item,index) in newlist" v-bind:key="item.id" @click="gotocomicdetails(item.id,userInfo.uid)">
-					<image :src="item.cover_url" mode="widthFix"></image>
+					<image :src="item.cover_url" mode="aspectFill" lazy-load=true></image>
 					<view class="book_name">
 						{{item.book_name}}
 					</view>
@@ -193,6 +193,7 @@
 
 	.button_view {
 		margin-top: 44rpx;
+		margin-right: 1rpx;
 	}
 
 	.swiper {
@@ -238,6 +239,7 @@
 		
 		image {
 			width: 100%;
+			height: 314rpx;
 			border-radius: 5rpx;
 		}
 		

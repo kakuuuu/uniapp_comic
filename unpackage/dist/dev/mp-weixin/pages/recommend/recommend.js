@@ -184,7 +184,7 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
       loadStatus: 'loadmore',
       booklist: [],
       startlem: 0,
-      pageSize: 10,
+      pageSize: 6,
       userInfo: {} };
 
   },
@@ -218,6 +218,7 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
                     pageSize: _this2.pageSize },
 
                   success: function success(res) {
+                    console.log(res.data);
                     _this2.booklist = _this2.booklist.concat(res.data.books);
                     _this2.startlem = _this2.startlem + _this2.pageSize;
                   } });case 4:case "end":return _context.stop();}}}, _callee);}))();

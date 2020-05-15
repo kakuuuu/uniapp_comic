@@ -22,7 +22,7 @@ const store = new Vuex.Store({//全局变量定义
             state.uid = user.uid || '';
             state.utoken = user.utoken || '';
             state.mobile = user.mobile || '';
-			state.nick_name = user.nick_name || '';
+			state.nick_name = user.nick_name || '未命名用户';
 			state.balance = user.balance || '';
 			state.vip_expire_time = user.vip_expire_time || '';
 			uni.setStorage({

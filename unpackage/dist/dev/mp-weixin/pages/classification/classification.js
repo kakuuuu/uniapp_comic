@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "u-tabsleft": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-tabsleft/u-tabsleft */ "uview-ui/components/u-tabsleft/u-tabsleft").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabsleft/u-tabsleft.vue */ 219))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-tabsleft/u-tabsleft */ "uview-ui/components/u-tabsleft/u-tabsleft").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabsleft/u-tabsleft.vue */ 205))
   },
   "u-empty": function() {
     return Promise.all(/*! import() | uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-empty/u-empty.vue */ 190))
@@ -178,7 +178,7 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
       arealist: [],
       endlist: [{
         name: "全部",
-        id: null },
+        id: -1 },
       {
         name: "连载中",
         id: 0 },
@@ -266,11 +266,11 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
                     area: _this4.arealist[_this4.area_current].id,
                     tag: _this4.tags[_this4.tag_current].name,
                     end: _this4.endlist[_this4.end_current].id,
-                    startItem: 0,
-                    pageSize: 20 },
+                    startItem: _this4.startlem,
+                    pageSize: _this4.pageSize },
 
                   success: function success(res) {
-                    _this4.booklist = res.data.books;
+                    _this4.booklist = _this4.booklist.concat(res.data.books);
                     _this4.startlem = _this4.startlem + _this4.pageSize;
                     console.log(res.data);
                   } });case 4:case "end":return _context4.stop();}}}, _callee4);}))();
@@ -288,21 +288,29 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
                     pageSize: _this5.pageSize },
 
                   success: function success(res) {
-                    _this5.booklist = res.data.books;
+                    console.log(res.data);
+                    _this5.booklist = _this5.booklist.concat(res.data.books);
+                    _this5.startlem = _this5.startlem + _this5.pageSize;
                   } });case 4:case "end":return _context5.stop();}}}, _callee5);}))();
 
     },
     change_tag: function change_tag(index) {
       // if(index===0)
       this.tag_current = index;
+      this.booklist = [];
+      this.startlem = 0;
       this.getbooklist();
     },
     change_area: function change_area(index) {
       this.area_current = index;
+      this.booklist = [];
+      this.startlem = 0;
       this.getbooklist();
     },
     change_end: function change_end(index) {
       this.end_current = index;
+      this.booklist = [];
+      this.startlem = 0;
       this.getbooklist();
     },
     gettname: function gettname(i) {

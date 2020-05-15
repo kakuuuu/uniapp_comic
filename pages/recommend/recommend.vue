@@ -9,7 +9,7 @@
 					<!-- #endif -->
 					<!-- #ifdef MP-WEIXIN -->
 					<view class="img_wrap">
-						<image class="carton_image" :src="item.cover_url" mode="widthFix"></image>
+						<image class="carton_image" :src="item.cover_url" mode="widthFix" lazy-load=true></image>
 					</view>
 					<!-- #endif -->
 					<view class="book_title">
@@ -24,7 +24,7 @@
 					<!-- #endif -->
 					<!-- #ifdef MP-WEIXIN -->
 					<view class="img_wrap">
-						<image class="carton_image" :src="item.cover_url" mode="widthFix"></image>
+						<image class="carton_image" :src="item.cover_url" mode="widthFix" lazy-load=true></image>
 					</view>
 					<!-- #endif -->
 					<view class="book_title">
@@ -45,7 +45,7 @@
 				loadStatus: 'loadmore',
 				booklist: [],
 				startlem: 0,
-				pageSize: 10,
+				pageSize: 6,
 				userInfo:{}
 			}
 		},
@@ -79,6 +79,7 @@
 						pageSize: this.pageSize
 					},
 					success: (res) => {
+						console.log(res.data)
 						this.booklist = this.booklist.concat(res.data.books);
 						this.startlem = this.startlem + this.pageSize;
 					}

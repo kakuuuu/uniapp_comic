@@ -1,7 +1,7 @@
 <template>
 	<view class="chapterdetail">
 		<view class="photo" v-for="item in chapter.photos" v-bind:key=item.id>
-			<image :src="item.img_url" mode="widthFix" lazy-load="true">
+			<image :src="item.img_url" mode="widthFix" lazy-load=true>
 			</image>
 		</view>
 		<view class="bottom_nav">

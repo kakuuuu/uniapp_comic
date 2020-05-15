@@ -70,20 +70,6 @@
 .bookshelf .title text.data-v-741801f2 {
   font-size: 30rpx;
 }
-.bookshelf .carton_box.data-v-741801f2 {
-  margin-top: 25rpx;
-}
-.bookshelf .carton_box image.data-v-741801f2 {
-  width: 100%;
-  border-radius: 5rpx;
-}
-.bookshelf .carton_box .book_name.data-v-741801f2 {
-  font-weight: bold;
-  font-size: 28rpx;
-  line-height: 30rpx;
-  overflow: hidden;
-  height: 60rpx;
-}
 .booklist_box.data-v-741801f2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -101,6 +87,7 @@
 }
 .carton_box_3 image.data-v-741801f2 {
   width: 100%;
+  height: 314rpx;
   border-radius: 5rpx;
 }
 .carton_box_3 .book_name.data-v-741801f2 {

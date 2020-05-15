@@ -51,8 +51,8 @@
 						'custom-header': 'hello' //自定义请求头信息
 					},
 					success: (res) => {
-						this.classiclist = res.data.newest;
-						console.log(this.classiclist)
+						this.classiclist = res.data.ends;
+						console.log(res.data)
 					}
 				});
 			}

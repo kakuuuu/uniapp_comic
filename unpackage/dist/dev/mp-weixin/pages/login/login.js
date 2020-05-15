@@ -94,10 +94,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "u-cell-group": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-cell-group/u-cell-group */ "uview-ui/components/u-cell-group/u-cell-group").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-cell-group/u-cell-group.vue */ 226))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-cell-group/u-cell-group */ "uview-ui/components/u-cell-group/u-cell-group").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-cell-group/u-cell-group.vue */ 212))
   },
   "u-field": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-field/u-field */ "uview-ui/components/u-field/u-field").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-field/u-field.vue */ 233))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-field/u-field */ "uview-ui/components/u-field/u-field").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-field/u-field.vue */ 219))
   },
   "u-button": function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-button/u-button */ "uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-button/u-button.vue */ 155))
@@ -185,16 +185,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
 var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));
 var _vuex = __webpack_require__(/*! vuex */ 8);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
 {
   data: function data() {
     return {
@@ -208,10 +202,10 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function _interopRequireDefault(o
     getapi: function getapi() {
       var timestamp = Date.parse(new Date());
       var api_key = "abcde";
-      return [timestamp, (0, _md.default)(api_key + timestamp)];
-      //返回api_key+时间戳md5加密
+      return [timestamp, (0, _md.default)(api_key + timestamp)]; //返回api_key+时间戳md5加密 
     },
     userlogin: function userlogin() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var key;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
                   _this.getapi());case 2:key = _context.sent;
                 uni.request({
                   url: 'http://www.liaowang.xyz/app/account/login',
@@ -223,11 +217,49 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function _interopRequireDefault(o
                     password: _this.password },
 
                   success: function success(res) {
-                    // this.hotlist = res.data.hots;
                     console.log(res.data);
-                    _this.login(res.data.userInfo);
-                    _this.utoken = res.data.userInfo.utoken;
+                    if (res.data.success === 0) {
+                      uni.showToast({
+                        title: res.data.msg,
+                        duration: 2000 });
+
+                      _this.password = '';
+                    } else {
+                      _this.login(res.data.userInfo);
+                      _this.utoken = res.data.userInfo.utoken;
+                      uni.showToast({
+                        title: "登录成功",
+                        duration: 2000 });
+
+                      uni.reLaunch({
+                        url: '../discover/discover' });
+
+                    }
                   } });case 4:case "end":return _context.stop();}}}, _callee);}))();
+
+    },
+    gotoregistered: function gotoregistered() {
+      uni.navigateTo({
+        url: '../registered/registered' });
+
+    },
+    wxGetUserInfo: function wxGetUserInfo(res) {
+      uni.login({
+        provider: 'weixin',
+        success: function success(loginRes) {
+          console.log('-------获取code-------');
+          console.log(loginRes.code);
+          wx.request({
+            url: 'https://xxxxx' + loginRes.code,
+            success: function success(info) {
+              console.log('-------获取sessionKey、openid(unionid)-------');
+              console.log(info);
+            },
+            fail: function fail(e) {
+              console.log(e);
+            } });
+
+        } });
 
     } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

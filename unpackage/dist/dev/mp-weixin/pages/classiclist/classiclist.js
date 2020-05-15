@@ -103,7 +103,7 @@ var components = {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-col/u-col */ "uview-ui/components/u-col/u-col").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-col/u-col.vue */ 148))
   },
   "u-tag": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-tag/u-tag */ "uview-ui/components/u-tag/u-tag").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tag/u-tag.vue */ 205))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-tag/u-tag */ "uview-ui/components/u-tag/u-tag").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tag/u-tag.vue */ 198))
   }
 }
 var render = function() {
@@ -196,8 +196,8 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
                     'custom-header': 'hello' //自定义请求头信息
                   },
                   success: function success(res) {
-                    _this.classiclist = res.data.newest;
-                    console.log(_this.classiclist);
+                    _this.classiclist = res.data.ends;
+                    console.log(res.data);
                   } });case 4:case "end":return _context.stop();}}}, _callee);}))();
 
     } },

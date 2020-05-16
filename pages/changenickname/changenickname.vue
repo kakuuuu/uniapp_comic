@@ -43,8 +43,8 @@
 					data: {
 						time: key[0],
 						token: key[1],
-						nickname: this.nickname,
-						utoken: this.$store.state.utoken
+						utoken: this.$store.state.utoken,
+						nickname: this.nickname
 					},
 					success: (res) => {
 						console.log(res.data)

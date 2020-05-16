@@ -3,8 +3,7 @@
 - 前端：Vue，uniapp
 - 组件库：uView
 - 后端：[开源有态度的漫画CMS](https://github.com/hiliqi/xiaohuanxiong)
-- ui样式参考：
-快看漫画mini小程序
+- ui样式参考：快看漫画
 ### 目前进度
 - [x] 发现页
 - [x] 推荐页
@@ -15,6 +14,9 @@
 - [x] 章节详情页
 - [x] 书架页 
 - [x] 登录页 
+- [x] 注册页
+- [ ] vip页
+- [ ] 充值页 
 
 ### 项目地址
 [https://github.com/kakuuuu/uniapp_comic](https://github.com/kakuuuu/uniapp_comic)

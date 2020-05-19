@@ -1,3 +1,6 @@
+.swiper {
+  height: 100%;
+}
 .photo image {
   width: 100%;
 }
@@ -12,5 +15,21 @@
 }
 .bottom_nav view {
   width: 48%;
+}
+.popup {
+  height: 100%;
+  background-color: #333333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.btn_group view {
+  margin-bottom: 32rpx;
 }
 

@@ -14,6 +14,7 @@ const store = new Vuex.Store({//全局变量定义
 		mobile:'',
 		balance:'',
         vip_expire_time:'',
+		show_swiper:false
     },
     mutations: {
         login(state, user) {
@@ -42,7 +43,10 @@ const store = new Vuex.Store({//全局变量定义
 		   uni.removeStorage({
 		   	key:'userInfo'
 		   })
-        }
+        },
+		change_showswiper(state,isshow){
+			state.show_swiper=isshow;
+		}
     }
 })
 export default store

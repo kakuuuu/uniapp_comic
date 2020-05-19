@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['click',['$event']]]],['touchmove',[['',['$event']]]]]}}" class="{{['u-mask data-v-58ad5c28',show?'u-mask-show':'']}}" style="{{$root.s0}}" bindtap="__e" catchtouchmove="__e"><slot></slot></view>

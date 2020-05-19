@@ -29,14 +29,14 @@
     "list": [
       {
         "pagePath": "pages/recommend/recommend",
-        "iconPath": "static/icon/choiceness.png",
-        "selectedIconPath": "static/icon/choiceness_s.png",
+        "iconPath": "static/icon/diamond.png",
+        "selectedIconPath": "static/icon/diamond_s.png",
         "text": "推荐"
       },
       {
         "pagePath": "pages/discover/discover",
-        "iconPath": "static/icon/discover.png",
-        "selectedIconPath": "static/icon/discover_s.png",
+        "iconPath": "static/icon/yuan.png",
+        "selectedIconPath": "static/icon/yuan_s.png",
         "text": "发现"
       },
       {
@@ -47,6 +47,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap47.json"
+  "usingComponents": {}
 }

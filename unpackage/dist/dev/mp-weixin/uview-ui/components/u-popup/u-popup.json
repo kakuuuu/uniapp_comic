@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "u-mask": "/uview-ui/components/u-mask/u-mask"
+  },
+  "component": true
+}

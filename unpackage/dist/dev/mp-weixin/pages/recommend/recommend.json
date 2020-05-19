@@ -2,8 +2,6 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
-    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
-    "recommend-u-waterfall-left": "/pages/recommend/recommend-u-waterfall-left",
-    "recommend-u-waterfall-right": "/pages/recommend/recommend-u-waterfall-right"
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
   }
 }

@@ -192,8 +192,8 @@ var _vuex = __webpack_require__(/*! vuex */ 8);function _interopRequireDefault(o
 {
   data: function data() {
     return {
-      username: 'testuser',
-      password: '123456',
+      username: '',
+      password: '',
       utoken: '' };
 
   },

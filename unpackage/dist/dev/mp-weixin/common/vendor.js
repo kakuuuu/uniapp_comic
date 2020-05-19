@@ -1712,7 +1712,8 @@ var store = new _vuex.default.Store({ //全局变量定义
     utoken: '',
     mobile: '',
     balance: '',
-    vip_expire_time: '' },
+    vip_expire_time: '',
+    show_swiper: false },
 
   mutations: {
     login: function login(state, user) {
@@ -1741,6 +1742,9 @@ var store = new _vuex.default.Store({ //全局变量定义
       uni.removeStorage({
         key: 'userInfo' });
 
+    },
+    change_showswiper: function change_showswiper(state, isshow) {
+      state.show_swiper = isshow;
     } } });var _default =
 
 

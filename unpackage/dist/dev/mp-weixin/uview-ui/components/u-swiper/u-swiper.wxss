@@ -58,7 +58,8 @@
   width: 14rpx;
   height: 14rpx;
   margin: 0 6rpx;
-  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background-color: rgba(0, 0, 0, 0.3);
@@ -70,7 +71,8 @@
   width: 14rpx;
   height: 14rpx;
   margin: 0 6rpx;
-  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background-color: rgba(0, 0, 0, 0.3);
@@ -83,7 +85,8 @@
   padding: 6rpx 16rpx;
   line-height: 1;
   background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 100rpx;
+  -webkit-border-radius: 100rpx;
+          border-radius: 100rpx;
   font-size: 26rpx;
   color: rgba(255, 255, 255, 0.8);
 }

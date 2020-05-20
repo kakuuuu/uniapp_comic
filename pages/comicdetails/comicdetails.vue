@@ -1,8 +1,29 @@
 <template>
 	<view class="comicdetails">
-		<view class="top_content">
-			<image :src="book.cover_url" mode="aspectFill"></image>
+		<view class="top_box" :style="{background:'url('+book.cover_url+') no-repeat', 'background-clip':'content-box','background-size':'cover'}">
+			<view class="mask">
+				<view class="btn_c">
+					<view>
+						<u-button shape="circle" type="warning" hair-line="false" size="mini" :custom-style="{
+									'background-color': '#fed23d',
+									'font-size': '22rpx','color':'#000000',
+									'height':'44rpx'
+								}"
+						 @click="collect" v-if="isfavor===0">加关注</u-button>
+						 <u-button shape="circle" type="primary" hair-line="false" size="mini" :custom-style="{
+						 			'background-color': '#f4f4f5',
+						 			'font-size': '22rpx','color':'#000000',
+						 			'height':'44rpx'
+						 		}"
+						  @click="collect" v-if="isfavor===1">已关注</u-button>
+					</view>
+				</view>
+			</view>
 		</view>
+
+		<!-- <view class="top_content">
+			<image :src="book.cover_url" mode="aspectFill"></image>
+		</view> -->
 		<view class="tabs">
 			<view class="u_tabs" v-for="(item,index) in list" :key="index" @click="change(index)">
 				{{item.name}}
@@ -27,7 +48,7 @@
 			<view class="detailsbottom">
 				<view class="title">
 					<text>精彩漫评</text>
-					<text class="cnumber">({{comments.length}})</text>
+					<text class="cnumber">({{comments.length}}条)</text>
 				</view>
 				<view class="comment" v-for="item in comments" v-bind:key="item.id">
 					<u-row gutter="16">
@@ -36,6 +57,9 @@
 						</u-col>
 						<u-col span="10">
 							<view class="nick_name">{{item.user.nick_name}}</view>
+							<view class="create_time">
+								{{item.create_time|dateFormat}}
+							</view>
 							<view class="comment_content">
 								{{item.content}}
 							</view>
@@ -79,9 +103,11 @@
 	export default {
 		data() {
 			return {
+				userInfo: {},
 				id: null,
 				uid: null,
 				book: {},
+				isfavor:0,
 				comments: [],
 				chapters: [],
 				list: [{
@@ -106,6 +132,8 @@
 		onLoad: async function(option) { //option为object类型，会序列化上个页面传递的参数
 			this.id = option.id;
 			this.uid = option.uid;
+			this.userInfo = this.$store.state;
+			this.getfavor();
 			this.getcomicdetails();
 			this.getcomments();
 			this.getchapters();
@@ -163,6 +191,22 @@
 					}
 				});
 			},
+			async getfavor() {
+				var key = await this.getapi();
+				uni.request({
+					url: 'http://www.liaowang.xyz/app/users/isfavor',
+					data: {
+						time: key[0],
+						token: key[1],
+						book_id: this.id,
+						utoken:this.$store.state.utoken
+					},
+					success: (res) => {
+						this.isfavor = res.data.isfavor;
+						console.log(res.data);
+					}
+				});
+			},
 			gotochapterdetail(id) {
 				uni.navigateTo({
 					url: '../chapterdetail/chapterdetail?id=' + id
@@ -170,10 +214,43 @@
 			},
 			change(index) {
 				this.current = index;
+			},
+			async collect() {
+				var key = await this.getapi();
+				uni.request({
+					url: 'http://www.liaowang.xyz/app/users/switchfavor',
+					data: {
+						time: key[0],
+						token: key[1],
+						utoken: this.$store.state.utoken,
+						book_id: this.id,
+						isfavor:this.isfavor
+					},
+					success: (res) => {
+						console.log(res.data);
+						if(res.data.success===1){
+							this.isfavor=res.data.isfavor;
+							if(res.data.isfavor===1){
+								uni.showToast({
+									title: "关注成功",
+									duration: 1000
+								})
+							}
+							else{
+								uni.showToast({
+									title: "取关成功",
+									duration: 1000
+								})
+							}
+							
+						}
+					}
+				});
 			}
 		},
 		filters: {
 			dateFormat(value) {
+				value=value*1000;
 				const dt = new Date(value)
 				const y = dt.getFullYear()
 				const m = (dt.getMonth() + 1 + '').padStart(2, '0')
@@ -183,13 +260,45 @@
 				const mm = (dt.getMinutes() + '').padStart(2, '0')
 				const ss = (dt.getSeconds() + '').padStart(2, '0')
 
-				return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+				// return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+				return `${y}-${m}-${d}`
 			}
 		}
 	}
 </script>
 
 <style lang="less" scoped>
+	.top_box {
+		width: 100%;
+		height: 334rpx;
+
+		image {
+			width: 100%;
+			height: 100%;
+		}
+
+		.mask {
+			width: 100%;
+			height: 100%;
+			background: rgba(4e, 4f, 63, 0.1);
+			// text-align: center
+		}
+
+		.btn_c {
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-start;
+			height: 100%;
+			color: #ffffff;
+			opacity: 1;
+
+			view {
+				margin-right: 32rpx;
+				margin-top: 32rpx;
+			}
+		}
+	}
+
 	.top_content {
 		width: 100%;
 
@@ -200,6 +309,7 @@
 
 	.tabs {
 		display: flex;
+
 		.u_tabs {
 			font-size: 30rpx;
 			height: 86rpx;
@@ -249,23 +359,28 @@
 		.detailsbottom {
 			background-color: #ffffff;
 			border-top: 7rpx soild #A0CFFF;
-
-			.comment {
-				font-size: 26rpx;
-				border-bottom: 2rpx #e6e6e6 soild;
-
-				.nick_name {
-					margin-top: 8rpx;
-					color: #666666;
-				}
-
-				.comment_content {
-					margin-top: 28rpx;
-					color: #555555;
-				}
-			}
 		}
 
+		.comment {
+			font-size: 26rpx;
+			border-bottom: 2rpx #e6e6e6 solid;
+
+			.nick_name {
+				margin-top: 8rpx;
+				color: #666666;
+			}
+			.create_time{
+				margin-top: 20rpx;
+				color: #999999;
+				font-size: 14rpx;
+			}
+
+			.comment_content {
+				margin-top: 28rpx;
+				margin-bottom: 28rpx;
+				color: #555555;
+			}
+		}
 
 	}
 

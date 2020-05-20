@@ -93,10 +93,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
-  "u-waterfall": function() {
+  uSearch: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-search/u-search */ "uview-ui/components/u-search/u-search").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-search/u-search.vue */ 143))
+  },
+  uWaterfall: function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-waterfall/u-waterfall */ "uview-ui/components/u-waterfall/u-waterfall").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-waterfall/u-waterfall.vue */ 185))
   },
-  "u-loadmore": function() {
+  uLoadmore: function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 192))
   }
 }
@@ -138,6 +141,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 17));
+
+
+
+
+
+
 
 
 
@@ -227,6 +236,11 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
     gotocomicdetails: function gotocomicdetails(id, uid) {
       uni.navigateTo({
         url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid });
+
+    },
+    gotosearch: function gotosearch() {
+      uni.navigateTo({
+        url: '../search/search' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

@@ -27,7 +27,8 @@
   margin-left: 28rpx;
 }
 .top_box .vip_box.data-v-741801f2 {
-  border-radius: 12rpx;
+  -webkit-border-radius: 12rpx;
+          border-radius: 12rpx;
   margin-left: 28rpx;
   margin-right: 28rpx;
   height: 110rpx;
@@ -88,7 +89,8 @@
 .carton_box_3 image.data-v-741801f2 {
   width: 100%;
   height: 314rpx;
-  border-radius: 5rpx;
+  -webkit-border-radius: 5rpx;
+          border-radius: 5rpx;
 }
 .carton_box_3 .book_name.data-v-741801f2 {
   font-weight: bold;

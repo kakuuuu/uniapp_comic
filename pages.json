@@ -6,13 +6,15 @@
 		{
 			"path": "pages/discover/discover",
 			"style": {
-				"enablePullDownRefresh":true
+				"enablePullDownRefresh":true,
+				"navigationStyle":"custom"
 			}
 		},
 		{
 			"path": "pages/recommend/recommend",
 			"style": {
-				"enablePullDownRefresh":true
+				"enablePullDownRefresh":true,
+				"navigationStyle":"custom"
 			}
 		}, {
 			"path": "pages/bookshelf/bookshelf",

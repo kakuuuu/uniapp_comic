@@ -27,15 +27,25 @@
 .wrap.data-v-173b6e30 {
   background-color: #f7f9fa;
 }
+.status_bar.data-v-173b6e30 {
+  height: 25px;
+  width: 100%;
+}
+.search_bar.data-v-173b6e30 {
+  width: 100%;
+  margin-top: 4rpx;
+}
 .carton_box.data-v-173b6e30 {
-  border-radius: 5rpx;
+  -webkit-border-radius: 5rpx;
+          border-radius: 5rpx;
   margin: 12rpx;
   background-color: #FFFFFF;
   padding: 8rpx;
 }
 .carton_image.data-v-173b6e30 {
   width: 100%;
-  border-radius: 5rpx;
+  -webkit-border-radius: 5rpx;
+          border-radius: 5rpx;
 }
 .book_title.data-v-173b6e30 {
   font-size: 30rpx;

@@ -36,7 +36,8 @@
           justify-content: center;
   font-size: 28rpx;
   color: #606266;
-  border-radius: 10px;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
   overflow: hidden;
 }
 .u-avatar-img.data-v-26e0bf88 {

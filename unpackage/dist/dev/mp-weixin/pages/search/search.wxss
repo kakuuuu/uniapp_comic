@@ -6,7 +6,8 @@
 }
 .carton_box image.data-v-374087ee {
   width: 100%;
-  border-radius: 5rpx;
+  -webkit-border-radius: 5rpx;
+          border-radius: 5rpx;
 }
 .carton_box .book_name.data-v-374087ee {
   margin-top: 45rpx;

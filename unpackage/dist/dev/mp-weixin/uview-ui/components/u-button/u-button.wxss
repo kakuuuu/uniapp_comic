@@ -73,7 +73,8 @@
 .u-wave-ripple.data-v-86f798b0 {
   z-index: 0;
   position: absolute;
-  border-radius: 100%;
+  -webkit-border-radius: 100%;
+          border-radius: 100%;
   background-clip: padding-box;
   pointer-events: none;
   -webkit-user-select: none;
@@ -94,10 +95,12 @@
   transition: opacity 1s linear, transform 0.4s linear, -webkit-transform 0.4s linear;
 }
 .u-round-circle.data-v-86f798b0 {
-  border-radius: 100rpx;
+  -webkit-border-radius: 100rpx;
+          border-radius: 100rpx;
 }
 .u-round-circle.data-v-86f798b0::after {
-  border-radius: 100rpx;
+  -webkit-border-radius: 100rpx;
+          border-radius: 100rpx;
 }
 .u-loading.data-v-86f798b0::after {
   background-color: rgba(255, 255, 255, 0.35);

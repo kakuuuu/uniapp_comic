@@ -1,7 +1,10 @@
 <template>
 	<view class="discover">
 		<view class="top-content">
-			<view class="" @click="gotosearch">
+			<view class="status_bar">
+				<!-- 这里是状态栏 -->
+			</view>
+			<view class="search_bar" @click="gotosearch">
 				<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#f7f9fa" disabled="false"></u-search>
 			</view>
 			<view class="swiper">
@@ -82,8 +85,7 @@
 	export default {
 		data() {
 			return {
-				swiper_list: [
-				],
+				swiper_list: [],
 				truelist: [],
 				newlist: [],
 				classiclist: [],
@@ -105,7 +107,7 @@
 			async getlist() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/books/getNewest', 
+					url: 'http://www.liaowang.xyz/app/books/getNewest',
 					data: {
 						time: key[0],
 						token: key[1]
@@ -121,17 +123,17 @@
 					}
 				});
 			},
-			async getbanners(){
+			async getbanners() {
 				var key = await this.getapi();
 				uni.request({
 					url: 'http://www.liaowang.xyz/app/tags/getBanners',
 					data: {
 						time: key[0],
 						token: key[1],
-						num:3
+						num: 3
 					},
 					success: (res) => {
-						this.swiper_list=res.data.banners;
+						this.swiper_list = res.data.banners;
 						console.log(res.data)
 					}
 				});
@@ -176,9 +178,9 @@
 					url: '../search/search'
 				})
 			},
-			clickswiper(index){
+			clickswiper(index) {
 				console.log(index);
-				this.gotocomicdetails(this.swiper_list[index].book_id,this.userInfo.uid)
+				this.gotocomicdetails(this.swiper_list[index].book_id, this.userInfo.uid)
 			}
 
 		}
@@ -189,6 +191,16 @@
 	.discover {
 		margin-left: 16rpx;
 		margin-right: 16rpx;
+	}
+
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+
+	.search_bar {
+		width: 100%;
+		margin-top: 4rpx;
 	}
 
 	.button_view {
@@ -233,16 +245,17 @@
 			height: 60rpx;
 		}
 	}
-	.carton_box_3{
+
+	.carton_box_3 {
 		margin-top: 25rpx;
 		width: 32%;
-		
+
 		image {
 			width: 100%;
 			height: 314rpx;
 			border-radius: 5rpx;
 		}
-		
+
 		.book_name {
 			font-weight: bold;
 			font-size: 28rpx;

@@ -36,7 +36,8 @@
 }
 .carton_box image.data-v-d3ab4df4 {
   width: 100%;
-  border-radius: 5rpx;
+  -webkit-border-radius: 5rpx;
+          border-radius: 5rpx;
 }
 .carton_box .book_name.data-v-d3ab4df4 {
   font-size: 36rpx;

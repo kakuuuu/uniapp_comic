@@ -3149,7 +3149,8 @@ u-icon {
   border: 1px dashed #ddd;
   background-color: #fafafa;
   padding: 40rpx 20rpx;
-  border-radius: 6px;
+  -webkit-border-radius: 6px;
+          border-radius: 6px;
 }
 .u-demo-area {
   text-align: center;
@@ -3162,7 +3163,8 @@ u-icon {
   border: 1px dashed #ddd;
   padding: 10rpx 40rpx;
   margin-top: 30rpx;
-  border-radius: 5px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
   background-color: #f0f0f0;
   color: #606266;
   display: inline-block;
@@ -3200,7 +3202,8 @@ u-icon {
   height: 16px;
   content: '';
   left: 0;
-  border-radius: 10px;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
   background-color: #606266;
 }
 /* end--演示页面使用的统一样式--end */

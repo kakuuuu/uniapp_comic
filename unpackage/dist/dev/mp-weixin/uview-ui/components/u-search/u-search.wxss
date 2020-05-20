@@ -77,7 +77,8 @@
   -webkit-justify-content: center;
           justify-content: center;
   background-color: #c8cbcc;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
 }
 .u-placeholder-class.data-v-ca788f30 {
   color: #909399;

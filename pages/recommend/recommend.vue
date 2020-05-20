@@ -1,5 +1,11 @@
 <template>
 	<view class="wrap">
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="search_bar" @click="gotosearch">
+			<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#f7f9fa" disabled="false"></u-search>
+		</view>
 		<u-waterfall :flowList="booklist">
 			<template v-slot:left="{leftList}">
 				<view class="carton_box" v-for="(item, index) in leftList" :key="index" @click="gotocomicdetails(item.id,2)">
@@ -89,6 +95,11 @@
 				uni.navigateTo({
 					url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid
 				})
+			},
+			gotosearch() {
+				uni.navigateTo({
+					url: '../search/search'
+				})
 			}
 		}
 	}
@@ -98,7 +109,15 @@
 	.wrap {
 		background-color: #f7f9fa;
 	}
-
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+	
+	.search_bar {
+		width: 100%;
+		margin-top: 4rpx;
+	}
 	.carton_box {
 		border-radius: 5rpx;
 		margin: 12rpx;

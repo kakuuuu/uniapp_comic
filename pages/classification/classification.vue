@@ -1,7 +1,7 @@
 <template>
 	<view class="classification">
 		<view class="tabs_box">
-			<u-tabsleft :list="tags" :is-scroll="true" :current="tag_current" name="tag_name" @change="change_tag" font-size="26"
+			<u-tabsleft :list="tags" :is-scroll="false" :current="tag_current" name="tag_name" @change="change_tag" font-size="26"
 			 inactive-color="#666666" active-color="#333333" bold="false" show-bar="false"></u-tabsleft>
 		</view>
 		<view class="tabs_box">

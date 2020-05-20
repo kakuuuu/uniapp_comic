@@ -93,13 +93,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
-  "u-row": function() {
+  uButton: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-button/u-button */ "uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-button/u-button.vue */ 171))
+  },
+  uRow: function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-row/u-row */ "uview-ui/components/u-row/u-row").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-row/u-row.vue */ 157))
   },
-  "u-col": function() {
+  uCol: function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-col/u-col */ "uview-ui/components/u-col/u-col").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-col/u-col.vue */ 164))
   },
-  "u-avatar": function() {
+  uAvatar: function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-avatar/u-avatar */ "uview-ui/components/u-avatar/u-avatar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-avatar/u-avatar.vue */ 199))
   }
 }
@@ -107,8 +110,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l0 = _vm.__map(_vm.chapters, function(item, __i1__) {
-    var f0 = _vm._f("dateFormat")(item.update_time)
+  var a0 = {
+    "background-color": "#fed23d",
+    "font-size": "22rpx",
+    color: "#000000",
+    height: "44rpx"
+  }
+  var a1 = {
+    "background-color": "#f4f4f5",
+    "font-size": "22rpx",
+    color: "#000000",
+    height: "44rpx"
+  }
+
+  var l0 = _vm.__map(_vm.comments, function(item, __i0__) {
+    var f0 = _vm._f("dateFormat")(item.create_time)
 
     return {
       $orig: _vm.__get_orig(item),
@@ -116,11 +132,23 @@ var render = function() {
     }
   })
 
+  var l1 = _vm.__map(_vm.chapters, function(item, __i1__) {
+    var f1 = _vm._f("dateFormat")(item.update_time)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f1: f1
+    }
+  })
+
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        l0: l0
+        a0: a0,
+        a1: a1,
+        l0: l0,
+        l1: l1
       }
     }
   )
@@ -234,13 +262,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
     return {
+      userInfo: {},
       id: null,
       uid: null,
       book: {},
+      isfavor: 0,
       comments: [],
       chapters: [],
       list: [{
@@ -265,9 +319,11 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
   onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(option) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0: //option为object类型，会序列化上个页面传递的参数
               this.id = option.id;
               this.uid = option.uid;
+              this.userInfo = this.$store.state;
+              this.getfavor();
               this.getcomicdetails();
               this.getcomments();
-              this.getchapters();case 5:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
+              this.getchapters();case 7:case "end":return _context.stop();}}}, _callee, this);}));function onLoad(_x) {return _onLoad.apply(this, arguments);}return onLoad;}(),
 
   methods: {
     getapi: function getapi() {
@@ -322,6 +378,22 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
                   } });case 4:case "end":return _context4.stop();}}}, _callee4);}))();
 
     },
+    getfavor: function getfavor() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var key;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
+                  _this4.getapi());case 2:key = _context5.sent;
+                uni.request({
+                  url: 'http://www.liaowang.xyz/app/users/isfavor',
+                  data: {
+                    time: key[0],
+                    token: key[1],
+                    book_id: _this4.id,
+                    utoken: _this4.$store.state.utoken },
+
+                  success: function success(res) {
+                    _this4.isfavor = res.data.isfavor;
+                    console.log(res.data);
+                  } });case 4:case "end":return _context5.stop();}}}, _callee5);}))();
+
+    },
     gotochapterdetail: function gotochapterdetail(id) {
       uni.navigateTo({
         url: '../chapterdetail/chapterdetail?id=' + id });
@@ -329,10 +401,43 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
     },
     change: function change(index) {
       this.current = index;
+    },
+    collect: function collect() {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6() {var key;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:_context6.next = 2;return (
+                  _this5.getapi());case 2:key = _context6.sent;
+                uni.request({
+                  url: 'http://www.liaowang.xyz/app/users/switchfavor',
+                  data: {
+                    time: key[0],
+                    token: key[1],
+                    utoken: _this5.$store.state.utoken,
+                    book_id: _this5.id,
+                    isfavor: _this5.isfavor },
+
+                  success: function success(res) {
+                    console.log(res.data);
+                    if (res.data.success === 1) {
+                      _this5.isfavor = res.data.isfavor;
+                      if (res.data.isfavor === 1) {
+                        uni.showToast({
+                          title: "关注成功",
+                          duration: 1000 });
+
+                      } else
+                      {
+                        uni.showToast({
+                          title: "取关成功",
+                          duration: 1000 });
+
+                      }
+
+                    }
+                  } });case 4:case "end":return _context6.stop();}}}, _callee6);}))();
+
     } },
 
   filters: {
     dateFormat: function dateFormat(value) {
+      value = value * 1000;
       var dt = new Date(value);
       var y = dt.getFullYear();
       var m = (dt.getMonth() + 1 + '').padStart(2, '0');
@@ -342,7 +447,8 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 41));functi
       var mm = (dt.getMinutes() + '').padStart(2, '0');
       var ss = (dt.getSeconds() + '').padStart(2, '0');
 
-      return "".concat(y, "-").concat(m, "-").concat(d, " ").concat(hh, ":").concat(mm, ":").concat(ss);
+      // return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+      return "".concat(y, "-").concat(m, "-").concat(d);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

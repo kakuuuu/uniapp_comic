@@ -9,9 +9,8 @@
 			</u-cell-group>
 		</view>
 		<view class="registered_button">
-			<u-button shape="square" :custom-style="{
-						'background-color': '#fed23d',
-						'font-size': '30rpx','color':'#000000','height':'92rpx'
+			<u-button shape="square" type="primary" :custom-style="{
+						'font-size': '30rpx','height':'92rpx'
 					}"
 			 @click="userregistered">注册</u-button>
 		</view>

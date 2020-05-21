@@ -9,7 +9,7 @@
 			</u-cell-group>
 		</view>
 		<view class="login_button">
-			<u-button shape="square" :custom-style="{
+			<u-button shape="square" type="warning" :custom-style="{
 						'background-color': '#fed23d',
 						'font-size': '30rpx','color':'#000000','height':'92rpx'
 					}"
@@ -20,10 +20,10 @@
 			<!-- <u-button type="success" :custom-style="{'height':'92rpx'}" @getuserinfo="wxGetUserInfo">微信授权</u-button> -->
 			<button class="" open-type="getUserInfo" @getuserinfo="wxGetUserInfo" withCredentials="true">微信授权获取用户信息</button>
 		</view>
+		<!-- #endif -->
 		<view class="registered" @click="gotoregistered">
 			注册账号
 		</view>
-		<!-- #endif -->
 
 	</view>
 </template>

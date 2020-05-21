@@ -4,7 +4,7 @@
 			<!-- 这里是状态栏 -->
 		</view>
 		<view class="search_bar" @click="gotosearch">
-			<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#f7f9fa" disabled="false"></u-search>
+			<u-search placeholder="搜索作品名" :clearabled="true" :show-action="false" bg-color="#ffffff" disabled="false"></u-search>
 		</view>
 		<u-waterfall :flowList="booklist">
 			<template v-slot:left="{leftList}">

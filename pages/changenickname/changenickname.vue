@@ -7,7 +7,7 @@
 			</u-cell-group>
 		</view>
 		<view class="nickname_button">
-			<u-button shape="square" :custom-style="{
+			<u-button shape="square" type="warning" :custom-style="{
 						'background-color': '#fed23d',
 						'font-size': '30rpx','color':'#000000','height':'92rpx'
 					}"

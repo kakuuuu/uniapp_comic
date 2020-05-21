@@ -108,9 +108,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   var a0 = {
-    "background-color": "#fed23d",
     "font-size": "30rpx",
-    color: "#000000",
     height: "92rpx"
   }
   _vm.$mp.data = Object.assign(
@@ -155,7 +153,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 17));
-
 
 
 

@@ -21,13 +21,9 @@
 ### 项目地址
 [https://github.com/kakuuuu/uniapp_comic](https://github.com/kakuuuu/uniapp_comic)
 ### 项目预览
-![Screenshot_2020-05-14-17-33-12-960_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-172cd82562c59165.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![Screenshot_2020-05-14-17-33-45-354_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-3edf657815e878f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![Screenshot_2020-05-14-17-33-57-112_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-d17e619d344efcfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![Screenshot_2020-05-14-17-34-17-928_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-9d63559cca74f4c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![Screenshot_2020-05-14-17-34-48-019_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-bb55c63aa1d1a7f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![[图片上传中...(Screenshot_2020-05-21-20-53-02-916_HBuilder.png-3f89fd-1590065776250-0)]
+](https://upload-images.jianshu.io/upload_images/6888366-ec3515de43e5df2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Screenshot_2020-05-21-20-53-02-916_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-0600ebbc4d075f4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Screenshot_2020-05-21-20-53-07-599_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-49931cf61364347f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Screenshot_2020-05-21-20-55-15-693_HBuilder.png](https://upload-images.jianshu.io/upload_images/6888366-3574a145eac02800.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

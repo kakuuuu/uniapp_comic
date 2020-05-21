@@ -7685,6 +7685,19 @@ var render = function() {
           )
         ],
         1
+      ),
+      _c(
+        "v-uni-view",
+        {
+          staticClass: _vm._$g(7, "sc"),
+          attrs: { _i: 7 },
+          on: {
+            click: function($event) {
+              return _vm.$handleViewEvent($event)
+            }
+          }
+        },
+        [_vm._v("注册账号")]
       )
     ],
     1

@@ -141,14 +141,14 @@
 		methods: {
 			getapi() {
 				var timestamp = Date.parse(new Date());
-				var api_key = "abcde";
+				var api_key = this.api_key;
 				return [timestamp, md5(api_key + timestamp)];
 				//返回api_key+时间戳md5加密
 			},
 			async getcomicdetails() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/books/detail',
+					url: this.url_config+'app/books/detail',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -164,7 +164,7 @@
 			async getcomments() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/books/getComments',
+					url: this.url_config+'app/books/getComments',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -179,7 +179,7 @@
 			async getchapters() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/chapters/getList',
+					url: this.url_config+'app/chapters/getList',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -194,7 +194,7 @@
 			async getfavor() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/users/isfavor',
+					url: this.url_config+'app/users/isfavor',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -218,7 +218,7 @@
 			async collect() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/users/switchfavor',
+					url: this.url_config+'app/users/switchfavor',
 					data: {
 						time: key[0],
 						token: key[1],

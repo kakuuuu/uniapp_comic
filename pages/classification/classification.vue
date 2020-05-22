@@ -74,14 +74,14 @@
 		methods: {
 			getapi() {
 				var timestamp = Date.parse(new Date());
-				var api_key = "abcde";
+				var api_key = this.api_key;
 				return [timestamp, md5(api_key + timestamp)];
 				//返回api_key+时间戳md5加密
 			},
 			async gettags() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/tags/getList',
+					url: this.url_config+'app/tags/getList',
 					data: {
 						time: key[0],
 						token: key[1]
@@ -99,7 +99,7 @@
 			async getarealist() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/tags/getAreaList',
+					url: this.url_config+'app/tags/getAreaList',
 					data: {
 						time: key[0],
 						token: key[1]
@@ -117,7 +117,7 @@
 			async getbooklist() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/tags/getBookList',
+					url: this.url_config+'app/tags/getBookList',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -137,7 +137,7 @@
 			async initbooklist() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/tags/getBookList',
+					url: this.url_config+'app/tags/getBookList',
 					data: {
 						time: key[0],
 						token: key[1],

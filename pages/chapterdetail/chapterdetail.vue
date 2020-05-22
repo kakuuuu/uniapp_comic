@@ -59,14 +59,14 @@
 			...mapMutations(['change_showswiper']),
 			getapi() {
 				var timestamp = Date.parse(new Date());
-				var api_key = "abcde";
+				var api_key = this.api_key;
 				return [timestamp, md5(api_key + timestamp)];
 				//返回api_key+时间戳md5加密
 			},
 			async getchapterdetail() {
 				var key = await this.getapi();
 				uni.request({
-					url: 'http://www.liaowang.xyz/app/chapters/detail',
+					url: this.url_config+'app/chapters/detail',
 					data: {
 						time: key[0],
 						token: key[1],

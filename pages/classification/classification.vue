@@ -1,5 +1,16 @@
 <template>
 	<view class="classification">
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="title_bar">
+			<view @click="goback">
+				<u-icon name="arrow-left" size="30rpx"></u-icon>
+			</view>
+			<view>
+				分类
+			</view>
+		</view>
 		<view class="tabs_box">
 			<u-tabsleft :list="tags" :is-scroll="false" :current="tag_current" name="tag_name" @change="change_tag" font-size="26"
 			 inactive-color="#666666" active-color="#333333" bold="false" show-bar="false"></u-tabsleft>
@@ -81,7 +92,7 @@
 			async gettags() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/tags/getList',
+					url: this.url_config + 'app/tags/getList',
 					data: {
 						time: key[0],
 						token: key[1]
@@ -99,7 +110,7 @@
 			async getarealist() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/tags/getAreaList',
+					url: this.url_config + 'app/tags/getAreaList',
 					data: {
 						time: key[0],
 						token: key[1]
@@ -117,7 +128,7 @@
 			async getbooklist() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/tags/getBookList',
+					url: this.url_config + 'app/tags/getBookList',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -137,7 +148,7 @@
 			async initbooklist() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/tags/getBookList',
+					url: this.url_config + 'app/tags/getBookList',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -155,20 +166,20 @@
 			change_tag(index) {
 				// if(index===0)
 				this.tag_current = index;
-				this.booklist=[];
-				this.startlem=0;
+				this.booklist = [];
+				this.startlem = 0;
 				this.getbooklist();
 			},
 			change_area(index) {
 				this.area_current = index;
-				this.booklist=[];
-				this.startlem=0;
+				this.booklist = [];
+				this.startlem = 0;
 				this.getbooklist();
 			},
 			change_end(index) {
 				this.end_current = index;
-				this.booklist=[];
-				this.startlem=0;
+				this.booklist = [];
+				this.startlem = 0;
 				this.getbooklist();
 			},
 			gettname(i) {
@@ -187,6 +198,9 @@
 				uni.navigateTo({
 					url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid
 				})
+			},
+			goback() {
+				uni.navigateBack();
 			}
 		}
 	}
@@ -199,6 +213,24 @@
 		background-color: #fafbfc;
 	}
 
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+
+	.title_bar {
+		height: 68rpx;
+		font-size: 30rpx;
+		width: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+
+		view {
+			margin-left: 22rpx;
+		}
+	}
+
 	.tabs_box {
 		border-bottom: 3rpx solid #f3f3f3;
 	}
@@ -207,14 +239,17 @@
 		width: 100%;
 		margin-top: 40rpx;
 	}
-	.booklist_box{
+
+	.booklist_box {
 		display: flex;
-		flex-wrap:wrap;
+		flex-wrap: wrap;
 		justify-content: start;
 	}
+
 	.carton_box {
 		width: 32%;
 		margin-left: 1%;
+
 		image {
 			width: 100%;
 			border-radius: 5rpx;

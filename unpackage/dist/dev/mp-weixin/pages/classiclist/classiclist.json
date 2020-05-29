@@ -1,5 +1,7 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
     "u-empty": "/uview-ui/components/u-empty/u-empty",
     "u-row": "/uview-ui/components/u-row/u-row",
     "u-col": "/uview-ui/components/u-col/u-col",

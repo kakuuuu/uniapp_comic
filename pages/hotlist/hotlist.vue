@@ -1,5 +1,16 @@
 <template>
 	<view class="hotlist">
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="title_bar">
+			<view @click="goback">
+				<u-icon name="arrow-left" size="30rpx"></u-icon>
+			</view>
+			<view>
+				排行榜
+			</view>
+		</view>
 		<view class="top_box" :style="{background:'url('+hotlist[0].cover_url+') no-repeat', 'background-clip':'content-box','background-size':'cover'}">
 			<view class="mask">
 				<view class="hot_title">
@@ -73,12 +84,32 @@
 				uni.navigateTo({
 					url: '../comicdetails/comicdetails?id=' + id + '&uid=' + uid
 				})
+			},
+			goback() {
+				uni.navigateBack();
 			}
 		}
 	}
 </script>
 
 <style lang="less" scoped>
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+	
+	.title_bar {
+		height: 68rpx;
+		font-size: 30rpx;
+		width: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+	
+		view {
+			margin-left: 22rpx;
+		}
+	}
 	.top_box {
 		width: 100%;
 		height: 334rpx;

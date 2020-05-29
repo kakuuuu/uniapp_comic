@@ -1,5 +1,16 @@
 <template>
 	<view class="updatelist">
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="title_bar">
+			<view @click="goback">
+				<u-icon name="arrow-left" size="30rpx"></u-icon>
+			</view>
+			<view>
+				今日更新
+			</view>
+		</view>
 		<u-empty v-if="upadelist.length"></u-empty>
 		<!-- <view class="carton_box" v-for="(item,index) in updatelist" v-bind:key="item.id">
 			<u-row gutter="16">
@@ -60,7 +71,7 @@
 			async getlist() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/books/getNewest',
+					url: this.url_config + 'app/books/getNewest',
 					data: {
 						time: key[0],
 						token: key[1]
@@ -70,24 +81,47 @@
 						console.log(this.updatelist)
 					}
 				});
+			},
+			goback() {
+				uni.navigateBack();
 			}
 		}
 	}
 </script>
 
 <style lang="less" scoped>
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+
+	.title_bar {
+		height: 68rpx;
+		font-size: 30rpx;
+		width: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+
+		view {
+			margin-left: 22rpx;
+		}
+	}
+
 	.carton_box {
 		border-bottom: 3rpx solid #e6e6e6;
 		background-color: #f7f9fa;
 		display: flex;
 		justify-content: space-between;
-		
-		.img_wrap{
+
+		.img_wrap {
 			width: 42%;
 		}
-		.book_box{
+
+		.book_box {
 			width: 56%;
 		}
+
 		image {
 			width: 100%;
 		}

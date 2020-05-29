@@ -1,3 +1,27 @@
+.comicdetails.data-v-5ae4f2e4 {
+  font-family: Microsoft Yahei;
+}
+.status_bar.data-v-5ae4f2e4 {
+  height: 25px;
+  width: 100%;
+}
+.title_bar.data-v-5ae4f2e4 {
+  height: 68rpx;
+  font-size: 30rpx;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.title_bar view.data-v-5ae4f2e4 {
+  margin-left: 22rpx;
+}
 .top_box.data-v-5ae4f2e4 {
   width: 100%;
   height: 334rpx;
@@ -41,7 +65,9 @@
   display: flex;
 }
 .tabs .u_tabs.data-v-5ae4f2e4 {
+  color: #666666;
   font-size: 30rpx;
+  font-family: Microsoft Yahei;
   height: 86rpx;
   border-bottom: 2rpx #e6e6e6 solid;
   width: 100%;
@@ -54,6 +80,9 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
+}
+.tabs .u_tab_active.data-v-5ae4f2e4 {
+  color: #f5a623;
 }
 .details.data-v-5ae4f2e4 {
   padding-left: 30rpx;

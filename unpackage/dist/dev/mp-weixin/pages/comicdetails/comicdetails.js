@@ -93,6 +93,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
+  uIcon: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 179))
+  },
   uButton: function() {
     return __webpack_require__.e(/*! import() | uview-ui/components/u-button/u-button */ "uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-button/u-button.vue */ 172))
   },
@@ -186,6 +189,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 17));
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -399,6 +413,9 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 42));functi
         url: '../chapterdetail/chapterdetail?id=' + id });
 
     },
+    goback: function goback() {
+      uni.navigateBack();
+    },
     change: function change(index) {
       this.current = index;
     },
@@ -422,8 +439,7 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 42));functi
                           title: "关注成功",
                           duration: 1000 });
 
-                      } else
-                      {
+                      } else {
                         uni.showToast({
                           title: "取关成功",
                           duration: 1000 });

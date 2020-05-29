@@ -230,6 +230,12 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 42));functi
                   success: function success(res) {
                     _this.favors = res.data.favors;
                     console.log(res.data);
+                    if (res.data.success === 0) {
+                      uni.showToast({
+                        title: res.data.msg,
+                        duration: 2000 });
+
+                    }
                   } });case 4:case "end":return _context.stop();}}}, _callee);}))();
 
     },

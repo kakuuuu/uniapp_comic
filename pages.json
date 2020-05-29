@@ -6,14 +6,12 @@
 		{
 			"path": "pages/discover/discover",
 			"style": {
-				"enablePullDownRefresh":true,
 				"navigationStyle":"custom"
 			}
 		},
 		{
 			"path": "pages/recommend/recommend",
 			"style": {
-				"enablePullDownRefresh":true,
 				"navigationStyle":"custom"
 			}
 		}, {
@@ -24,32 +22,45 @@
 		}
 	    ,{
             "path" : "pages/updatelist/updatelist",
-            "style" : {}
+            "style" : {
+				"navigationStyle":"custom"
+			}
         }
         ,{
             "path" : "pages/classiclist/classiclist",
-            "style" : {}
+            "style" : {
+				"navigationStyle":"custom"
+			}
         }
         ,{
             "path" : "pages/comicdetails/comicdetails",
-            "style" : {}
+            "style" : {
+				"navigationStyle":"custom"
+			}
         }
         ,{
             "path" : "pages/chapterdetail/chapterdetail",
             "style" : {
+				"navigationStyle":"custom"
 			}
         }
         ,{
             "path" : "pages/search/search",
-            "style" : {}
+            "style" : {
+				"navigationStyle":"custom"
+			}
         }
         ,{
             "path" : "pages/hotlist/hotlist",
-            "style" : {}
+            "style" : {
+				"navigationStyle":"custom"
+			}
         }
         ,{
             "path" : "pages/classification/classification",
-            "style" : {}
+            "style" : {
+				"navigationStyle":"custom"
+			}
         }
         ,{
             "path" : "pages/login/login",

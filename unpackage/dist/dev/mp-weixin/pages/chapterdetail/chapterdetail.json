@@ -1,8 +1,9 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
     "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
     "u-button": "/uview-ui/components/u-button/u-button",
-    "u-icon": "/uview-ui/components/u-icon/u-icon",
     "u-popup": "/uview-ui/components/u-popup/u-popup"
   }
 }

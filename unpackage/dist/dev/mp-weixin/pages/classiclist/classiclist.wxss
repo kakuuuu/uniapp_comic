@@ -1,3 +1,24 @@
+.status_bar.data-v-2d6d1310 {
+  height: 25px;
+  width: 100%;
+}
+.title_bar.data-v-2d6d1310 {
+  height: 68rpx;
+  font-size: 30rpx;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.title_bar view.data-v-2d6d1310 {
+  margin-left: 22rpx;
+}
 .carton_box.data-v-2d6d1310 {
   border-bottom: 3rpx solid #e6e6e6;
   background-color: #f7f9fa;

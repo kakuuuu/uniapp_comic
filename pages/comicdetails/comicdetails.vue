@@ -1,5 +1,16 @@
 <template>
 	<view class="comicdetails">
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="title_bar">
+			<view @click="goback">
+				<u-icon name="arrow-left" size="30rpx"></u-icon>
+			</view>
+			<view>
+				{{book.book_name}}
+			</view>
+		</view>
 		<view class="top_box" :style="{background:'url('+book.cover_url+') no-repeat', 'background-clip':'content-box','background-size':'cover'}">
 			<view class="mask">
 				<view class="btn_c">
@@ -10,12 +21,12 @@
 									'height':'44rpx'
 								}"
 						 @click="collect" v-if="isfavor===0">加关注</u-button>
-						 <u-button shape="circle" type="primary" hair-line="false" size="mini" :custom-style="{
+						<u-button shape="circle" type="primary" hair-line="false" size="mini" :custom-style="{
 						 			'background-color': '#f4f4f5',
 						 			'font-size': '22rpx','color':'#000000',
 						 			'height':'44rpx'
 						 		}"
-						  @click="collect" v-if="isfavor===1">已关注</u-button>
+						 @click="collect" v-if="isfavor===1">已关注</u-button>
 					</view>
 				</view>
 			</view>
@@ -25,7 +36,7 @@
 			<image :src="book.cover_url" mode="aspectFill"></image>
 		</view> -->
 		<view class="tabs">
-			<view class="u_tabs" v-for="(item,index) in list" :key="index" @click="change(index)">
+			<view class="u_tabs" v-for="(item,index) in list" :key="index" @click="change(index)" :class="{' u_tab_active':current==index}">
 				{{item.name}}
 			</view>
 		</view>
@@ -107,7 +118,7 @@
 				id: null,
 				uid: null,
 				book: {},
-				isfavor:0,
+				isfavor: 0,
 				comments: [],
 				chapters: [],
 				list: [{
@@ -148,7 +159,7 @@
 			async getcomicdetails() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/books/detail',
+					url: this.url_config + 'app/books/detail',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -164,7 +175,7 @@
 			async getcomments() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/books/getComments',
+					url: this.url_config + 'app/books/getComments',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -179,7 +190,7 @@
 			async getchapters() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/chapters/getList',
+					url: this.url_config + 'app/chapters/getList',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -194,12 +205,12 @@
 			async getfavor() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/users/isfavor',
+					url: this.url_config + 'app/users/isfavor',
 					data: {
 						time: key[0],
 						token: key[1],
 						book_id: this.id,
-						utoken:this.$store.state.utoken
+						utoken: this.$store.state.utoken
 					},
 					success: (res) => {
 						this.isfavor = res.data.isfavor;
@@ -212,37 +223,39 @@
 					url: '../chapterdetail/chapterdetail?id=' + id
 				})
 			},
+			goback(){
+				uni.navigateBack();
+			},
 			change(index) {
 				this.current = index;
 			},
 			async collect() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/users/switchfavor',
+					url: this.url_config + 'app/users/switchfavor',
 					data: {
 						time: key[0],
 						token: key[1],
 						utoken: this.$store.state.utoken,
 						book_id: this.id,
-						isfavor:this.isfavor
+						isfavor: this.isfavor
 					},
 					success: (res) => {
 						console.log(res.data);
-						if(res.data.success===1){
-							this.isfavor=res.data.isfavor;
-							if(res.data.isfavor===1){
+						if (res.data.success === 1) {
+							this.isfavor = res.data.isfavor;
+							if (res.data.isfavor === 1) {
 								uni.showToast({
 									title: "关注成功",
 									duration: 1000
 								})
-							}
-							else{
+							} else {
 								uni.showToast({
 									title: "取关成功",
 									duration: 1000
 								})
 							}
-							
+
 						}
 					}
 				});
@@ -250,7 +263,7 @@
 		},
 		filters: {
 			dateFormat(value) {
-				value=value*1000;
+				value = value * 1000;
 				const dt = new Date(value)
 				const y = dt.getFullYear()
 				const m = (dt.getMonth() + 1 + '').padStart(2, '0')
@@ -268,6 +281,28 @@
 </script>
 
 <style lang="less" scoped>
+	.comicdetails {
+		font-family: Microsoft Yahei;
+	}
+
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+
+	.title_bar {
+		height: 68rpx;
+		font-size: 30rpx;
+		width: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+
+		view {
+			margin-left: 22rpx;
+		}
+	}
+
 	.top_box {
 		width: 100%;
 		height: 334rpx;
@@ -311,13 +346,20 @@
 		display: flex;
 
 		.u_tabs {
+			color: #666666;
 			font-size: 30rpx;
+			font-family: Microsoft Yahei;
 			height: 86rpx;
 			border-bottom: 2rpx #e6e6e6 solid;
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+		}
+
+		.u_tab_active {
+			color: #f5a623;
+			// font-weight: bold;
 		}
 	}
 
@@ -369,7 +411,8 @@
 				margin-top: 8rpx;
 				color: #666666;
 			}
-			.create_time{
+
+			.create_time {
 				margin-top: 20rpx;
 				color: #999999;
 				font-size: 14rpx;

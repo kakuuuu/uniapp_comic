@@ -82,6 +82,12 @@
 					success: (res) => {
 						this.favors = res.data.favors;
 						console.log(res.data);
+						if(res.data.success===0){
+							uni.showToast({
+								title: res.data.msg,
+								duration: 2000
+							})
+						}
 					}
 				});
 			},

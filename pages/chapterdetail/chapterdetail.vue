@@ -1,7 +1,19 @@
 <template>
 	<view class="chapterdetail">
+		<view class="status_bar">
+			<!-- 这里是状态栏 -->
+		</view>
+		<view class="title_bar">
+			<view @click="goback">
+				<u-icon name="arrow-left" size="30rpx"></u-icon>
+			</view>
+			<view>
+				{{chapter.chapter_name}}
+			</view>
+		</view>
 		<view class="swiper" v-if="show_swiper===true">
-			<u-swiper :list="chapter.photos" mode="number" height="1200" name="img_url" autoplay="false" img-mode="aspectFit" @click="show=true"></u-swiper>
+			<u-swiper :list="chapter.photos" mode="number" height="1200" name="img_url" autoplay="false" img-mode="aspectFit"
+			 @click="show=true"></u-swiper>
 		</view>
 		<view v-if="show_swiper===false" class="photo" v-for="item in chapter.photos" v-bind:key=item.id @click="show=true">
 			<image :src="item.img_url" mode="widthFix" lazy-load=true>
@@ -29,7 +41,7 @@
 					</view>
 					<view>
 						<u-icon name="arrow-down" size="42" color="#f7f9fa" @click="gotochapterdetail(chapter.next)"></u-icon>
-					</view>			
+					</view>
 				</view>
 			</view>
 		</u-popup>
@@ -47,12 +59,12 @@
 				id: null,
 				chapter: null,
 				show_swiper: false,
-				show:false
+				show: false
 			};
 		},
 		onLoad: async function(option) { //option为object类型，会序列化上个页面传递的参数
 			this.id = option.id;
-			this.show_swiper=this.$store.state.show_swiper;
+			this.show_swiper = this.$store.state.show_swiper;
 			this.getchapterdetail()
 		},
 		methods: {
@@ -66,7 +78,7 @@
 			async getchapterdetail() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/chapters/detail',
+					url: this.url_config + 'app/chapters/detail',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -83,8 +95,12 @@
 					url: '../chapterdetail/chapterdetail?id=' + id
 				})
 			},
-			changeshowswiper(isshow){
-				this.show_swiper=isshow;
+			goback(){
+				uni.navigateBack();
+			}
+			,
+			changeshowswiper(isshow) {
+				this.show_swiper = isshow;
 				this.change_showswiper(isshow);
 			}
 		}
@@ -92,6 +108,24 @@
 </script>
 
 <style lang="less">
+	.status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+	}
+
+	.title_bar {
+		height: 68rpx;
+		font-size: 30rpx;
+		width: 100%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+
+		view {
+			margin-left: 22rpx;
+		}
+	}
+
 	.swiper {
 		height: 100%;
 	}
@@ -111,15 +145,17 @@
 			width: 48%;
 		}
 	}
-	.popup{
+
+	.popup {
 		height: 100%;
 		background-color: #333333;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-	.btn_group{
-		view{
+
+	.btn_group {
+		view {
 			margin-bottom: 32rpx;
 		}
 	}

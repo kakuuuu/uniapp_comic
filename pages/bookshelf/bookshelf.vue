@@ -9,7 +9,7 @@
 			</view>
 			<view class="user_box" v-if="userInfo.hasLogin==true">
 				<u-avatar class="avatar" src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" size="100"></u-avatar>
-				<view class="user_name"  @click="showAS">
+				<view class="user_name" @click="showAS">
 					{{userInfo.nick_name}}
 				</view>
 				<view>
@@ -60,8 +60,10 @@
 			};
 		},
 		onLoad: function() {
-			this.getbookshelf();
 			this.userInfo = this.$store.state;
+		},
+		onShow: function() {
+			this.getbookshelf();
 		},
 		methods: {
 			getapi() {
@@ -73,7 +75,7 @@
 			async getbookshelf() {
 				var key = await this.getapi();
 				uni.request({
-					url: this.url_config+'app/users/bookshelf',
+					url: this.url_config + 'app/users/bookshelf',
 					data: {
 						time: key[0],
 						token: key[1],
@@ -82,7 +84,7 @@
 					success: (res) => {
 						this.favors = res.data.favors;
 						console.log(res.data);
-						if(res.data.success===0){
+						if (res.data.success === 0) {
 							uni.showToast({
 								title: res.data.msg,
 								duration: 2000
@@ -91,27 +93,26 @@
 					}
 				});
 			},
-			changenickname(){
+			changenickname() {
 				uni.navigateTo({
-					url:'../changenickname/changenickname'
+					url: '../changenickname/changenickname'
 				})
 			},
-			showAS(){
+			showAS() {
 				uni.showActionSheet({
 					itemList: ['切换用户'],
-					success: function (res) {
+					success: function(res) {
 						// console.log('选中了第' + (res.tapIndex + 1) + '个按钮');
 						// this.gotologin();
 						uni.navigateTo({
 							url: '../login/login'
 						})
 					},
-					fail: function (res) {
+					fail: function(res) {
 						console.log(res.errMsg);
 					}
 				});
-			}
-			,
+			},
 			gotochapterdetail(id) {
 				uni.navigateTo({
 					url: '../chapterdetail/chapterdetail?id=' + id
@@ -197,22 +198,24 @@
 			}
 		}
 	}
+
 	.booklist_box {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: start;
 	}
-	
-	.carton_box_3{
+
+	.carton_box_3 {
 		margin-top: 25rpx;
 		width: 32%;
 		margin-left: 1%;
+
 		image {
 			width: 100%;
 			height: 314rpx;
 			border-radius: 5rpx;
 		}
-		
+
 		.book_name {
 			font-weight: bold;
 			font-size: 28rpx;

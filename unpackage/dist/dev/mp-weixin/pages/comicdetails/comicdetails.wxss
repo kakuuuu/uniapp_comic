@@ -6,6 +6,7 @@
   width: 100%;
 }
 .title_bar.data-v-5ae4f2e4 {
+  background-color: #FFFFFF;
   height: 68rpx;
   font-size: 30rpx;
   width: 100%;

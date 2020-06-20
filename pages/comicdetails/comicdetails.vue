@@ -291,13 +291,13 @@
 	}
 
 	.title_bar {
+		background-color: #FFFFFF;
 		height: 68rpx;
 		font-size: 30rpx;
 		width: 100%;
 		display: flex;
 		justify-content: start;
 		align-items: center;
-
 		view {
 			margin-left: 22rpx;
 		}

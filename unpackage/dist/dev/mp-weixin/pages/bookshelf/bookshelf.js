@@ -208,8 +208,10 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 42));functi
 
   },
   onLoad: function onLoad() {
-    this.getbookshelf();
     this.userInfo = this.$store.state;
+  },
+  onShow: function onShow() {
+    this.getbookshelf();
   },
   methods: {
     getapi: function getapi() {
@@ -259,7 +261,6 @@ var _md = _interopRequireDefault(__webpack_require__(/*! @/md5.js */ 42));functi
         } });
 
     },
-
     gotochapterdetail: function gotochapterdetail(id) {
       uni.navigateTo({
         url: '../chapterdetail/chapterdetail?id=' + id });

@@ -1,0 +1,106 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/discover/discover",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/recommend/recommend",
+			"style": {
+				"navigationStyle":"custom"
+			}
+		}, {
+			"path": "pages/bookshelf/bookshelf",
+			"style": {
+				"navigationBarBackgroundColor":"#ffdd30"
+			}
+		}
+	    ,{
+            "path" : "pages/updatelist/updatelist",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/classiclist/classiclist",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/comicdetails/comicdetails",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/chapterdetail/chapterdetail",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/hotlist/hotlist",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/classification/classification",
+            "style" : {
+				"navigationStyle":"custom"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/registered/registered",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/changenickname/changenickname",
+            "style" : {}
+        }
+    ],
+	"tabBar": {
+		"color": "#7f8389",
+		"selectedColor": "#333333",
+		"borderStyle":"white",
+		"backgroundColor": "#FFFFFF",
+		"fontSize":"12px",
+		"list": [{
+			"pagePath": "pages/recommend/recommend",
+			"iconPath": "static/icon/diamond.png",
+			"selectedIconPath": "static/icon/diamond_s.png",
+			"text": "推荐"
+		}, {
+			"pagePath": "pages/discover/discover",
+			"iconPath": "static/icon/yuan.png",
+			"selectedIconPath": "static/icon/yuan_s.png",
+			"text": "发现"
+		}, {
+			"pagePath": "pages/bookshelf/bookshelf",
+			"iconPath": "static/icon/form.png",
+			"selectedIconPath": "static/icon/form_s.png",
+			"text": "书架"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff"
+	}
+}

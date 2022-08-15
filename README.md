@@ -2,7 +2,7 @@
 - 开发语言：JavaScript
 - 前端：Vue，uniapp
 - 组件库：uView
-- 后端：[开源有态度的漫画CMS](https://github.com/hiliqi/xiaohuanxiong) 本前端项目较老,该CMS更新迭代后会有接口失效的现象,有需要的请自行修改
+- 后端：[开源有态度的漫画CMS](https://github.com/hiliqi/xiaohuanxiong) 本前端项目较老,使用的CMS版本为**小浣熊CMS3.0** 。该CMS更新迭代后会有接口失效的现象,有需要的请自行修改
 - ui样式参考：快看漫画
 ### 目前进度
 - [x] 发现页
